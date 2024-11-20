@@ -187,32 +187,38 @@ $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
 	$(BIN) $< $@	
 	
 $(BUILD_DIR):
-	mkdir $@		
+	mkdir $@
+
+#######################################
+# Progarmming
+# This is the configuration used to load
+# the program into the Microcontroller.
+#######################################
+
+# Select connect oftion
+CONNECT_SWD = STM32_Programmer_CLI --connect port=SWD freq=4000000
+
+# Caculate file size to read
+FW_SIZE = $(shell stat -c%s $(BUILD_DIR)/$(TARGET).hex)
+
+
+FLASH_ADDR = 0x08000000
+
+run:
+	$(CONNECT_SWD) --erase all
+	$(CONNECT_SWD) --write $(BUILD_DIR)/$(TARGET).bin $(FLASH_ADDR)
+	$(CONNECT_SWD) --read $(FLASH_ADDR) $(FW_SIZE) $(BUILD_DIR)/read.bin
+	fc /b $(BUILD_DIR)/$(TARGET).bin $(BUILD_DIR)/read.bin
+	-rm $(BUILD_DIR)\read.bin
+	$(CONNECT_SWD) --start $(FLASH_ADDR)
+
+		
 
 #######################################
 # clean up
 #######################################
 clean:
 	-rm -fR $(BUILD_DIR)
-
-#######################################
-# Progarmming
-#######################################
-FIRMWARE = build/BlinkLed_StateMachine
-
-FW_SIZE = $(shell stat -c%s $(FIRMWARE).hex)
-
-CONNECT_SWD = STM32_Programmer_CLI --connect port=SWD freq=4000000
-
-FLASH_ADDR = 0x08000000
-
-run:
-	$(CONNECT_SWD) --erase all
-	$(CONNECT_SWD) --write $(FIRMWARE).bin $(FLASH_ADDR)
-	$(CONNECT_SWD) --read $(FLASH_ADDR) $(FW_SIZE) build/read.bin
-	fc /b $(FIRMWARE).bin build/read.bin
-	Remove-Item build\read.bin
-	$(CONNECT_SWD) --start $(FLASH_ADDR)
 
 #######################################
 # dependencies
