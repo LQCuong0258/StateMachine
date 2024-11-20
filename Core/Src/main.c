@@ -81,7 +81,7 @@ static void Blinky_dispatch (Blinky * const self, Event const * const event) {
      * khi đó led sẽ Toggle đúng chu kỳ đã được cấu hình cho timer
      */
     case TIME_OUT_SIG:
-      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+      HAL_GPIO_TogglePin(GPIOD, LedOrange);
       break;
   
     default:
@@ -302,33 +302,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  HAL_GPIO_WritePin(GPIOD, LedGreen, Reset);
+  HAL_GPIO_WritePin(GPIOD, LedGreen | LedRed | LedBlue | LedOrange, Reset);
   GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pin   = LedGreen;
-  GPIO_InitStruct.Pull  = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  GPIO_InitStruct = (GPIO_InitTypeDef) {0};
-  HAL_GPIO_WritePin(GPIOD, LedOrange, Reset);
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pin   = LedOrange;
-  GPIO_InitStruct.Pull  = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  GPIO_InitStruct = (GPIO_InitTypeDef) {0};
-  HAL_GPIO_WritePin(GPIOD, LedRed, Reset);
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pin   = LedRed;
-  GPIO_InitStruct.Pull  = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  GPIO_InitStruct = (GPIO_InitTypeDef) {0};
-  HAL_GPIO_WritePin(GPIOD, LedBlue, Reset);
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pin   = LedBlue;
+  GPIO_InitStruct.Pin   = LedGreen | LedRed | LedBlue | LedOrange;
   GPIO_InitStruct.Pull  = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);

@@ -194,7 +194,26 @@ $(BUILD_DIR):
 #######################################
 clean:
 	-rm -fR $(BUILD_DIR)
-  
+
+#######################################
+# Progarmming
+#######################################
+FIRMWARE = build/BlinkLed_StateMachine
+
+FW_SIZE = $(shell stat -c%s $(FIRMWARE).hex)
+
+CONNECT_SWD = STM32_Programmer_CLI --connect port=SWD freq=4000000
+
+FLASH_ADDR = 0x08000000
+
+run:
+	$(CONNECT_SWD) --erase all
+	$(CONNECT_SWD) --write $(FIRMWARE).bin $(FLASH_ADDR)
+	$(CONNECT_SWD) --read $(FLASH_ADDR) $(FW_SIZE) build/read.bin
+	fc /b $(FIRMWARE).bin build/read.bin
+	Remove-Item build\read.bin
+	$(CONNECT_SWD) --start $(FLASH_ADDR)
+
 #######################################
 # dependencies
 #######################################
