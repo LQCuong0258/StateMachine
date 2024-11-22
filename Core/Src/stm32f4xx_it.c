@@ -198,6 +198,45 @@ void DebugMon_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
-/* USER CODE BEGIN 1 */
+extern Active * AO_button;
+extern Active * AO_blinky1;
 
+/* USER CODE BEGIN 1 */
+// Xử lý ngắt cho EXTI0 (PA0)
+void EXTI0_IRQHandler (void) {
+  // Kiểm tra xem ngắt có phải từ PA0 không
+  if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_0) != RESET) 
+  {
+    // Xóa cờ ngắt (Clear interrupt flag)
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    Event btnEvt;
+
+    /* Đọc trạng thái của nút nhấn */
+    uint8_t btnStatus = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+    /* Nếu bắt được trạng thái nhấn nút */
+    if (btnStatus == GPIO_PIN_SET) {
+      btnEvt.signal = BUTTON_PRESSED_SIG;
+    }
+    /* Nếu bắt được trạng thái nhả nút */
+    else {
+      btnEvt.signal = BUTTON_RELEASED_SIG;
+    }
+
+    /* Post Event from ISR to ActiveObject */
+    Active_postFromISR(AO_button, &btnEvt, &xHigherPriorityTaskWoken);
+    portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
+  }
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+  if (htim->Instance == TIM7) {
+    static const Event time_evt = { .signal = TIME_OUT_SIG };
+    /* Send the time out event to the Blinky Active Object */
+    Active_postFromISR(AO_blinky1, &time_evt, &xHigherPriorityTaskWoken);
+  }
+  portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
+}
 /* USER CODE END 1 */

@@ -31,7 +31,10 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "Button.h"  /* Free Active Object interface */
+#include "Blinky.h"
 
+#include "SysConfig.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

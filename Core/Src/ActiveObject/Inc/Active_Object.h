@@ -26,12 +26,19 @@ typedef enum {
     USER_SIG,   // First-signal available to the users
 } ReservedSignal;
 
+typedef enum {
+    TRAN_STATUS,    /* Trạng thái cho biết đã chuyển sang một sự kiện mới */
+    HANDLED_STATUS, /* Trạng thái cho biết sự kiện đã được xử lý*/
+    IGNORED_STATUS, /* Trạng thái cho biết sự kiện đã bị bỏ qua */
+    INIT_STATUS     /* Trạng thái ban đầu khi khởi tạo Active Object */
+} Status;
+
 /*-------------------------------------------------------------------------------------------------------*/
 /* Active Object facilities */
 
 typedef struct Active Active; /* Forward declaration */
 
-typedef void (* DispatchHandler)(Active * const self, Event const * const event);
+typedef void (* DispatchHandler) (Active * const self, Event const * const event);
 
 /* Active object base class */
 struct Active {

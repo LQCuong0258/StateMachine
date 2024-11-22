@@ -55,7 +55,8 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
-$(wildcard Core/Src/ActiveObject/*.c) \
+$(wildcard Core/Src/ActiveObject/Src/*.c) \
+$(wildcard Core/Src/Drivers/Src/*.c) \
 
 
 # ASM sources
@@ -125,6 +126,7 @@ C_INCLUDES =  \
 -IThirdParty/FreeRTOS/include \
 -IThirdParty/FreeRTOS/portable/GCC/ARM_CM4F \
 -ICore/Src/ActiveObject/Inc \
+-ICore/Src/Drivers/Inc \
 
 
 # compile gcc flags
@@ -195,22 +197,33 @@ $(BUILD_DIR):
 # the program into the Microcontroller.
 #######################################
 
-# Select connect oftion
-CONNECT_SWD = STM32_Programmer_CLI --connect port=SWD freq=4000000
+# STLink Configruration=========
+STLINK = STM32_Programmer_CLI
+PORT = SWD
+FREQ = 4000000
+# ==============================
 
 # Caculate file size to read
 FW_SIZE = $(shell stat -c%s $(BUILD_DIR)/$(TARGET).hex)
 
-
+# Flash address
 FLASH_ADDR = 0x08000000
 
-run:
-	$(CONNECT_SWD) --erase all
-	$(CONNECT_SWD) --write $(BUILD_DIR)/$(TARGET).bin $(FLASH_ADDR)
-	$(CONNECT_SWD) --read $(FLASH_ADDR) $(FW_SIZE) $(BUILD_DIR)/read.bin
+run: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+# Full chip erase
+	$(STLINK) --connect port=$(PORT) freq=$(FREQ) --erase all
+
+# Download file
+	$(STLINK) --connect port=$(PORT) freq=$(FREQ) --write $(BUILD_DIR)/$(TARGET).bin $(FLASH_ADDR)
+
+# Verify file
+	$(STLINK) --connect port=$(PORT) freq=$(FREQ) --read $(FLASH_ADDR) $(FW_SIZE) $(BUILD_DIR)/read.bin
 	fc /b $(BUILD_DIR)/$(TARGET).bin $(BUILD_DIR)/read.bin
 	-rm $(BUILD_DIR)\read.bin
-	$(CONNECT_SWD) --start $(FLASH_ADDR)
+
+# Run after programming
+	$(STLINK) --connect port=$(PORT) freq=$(FREQ) --start $(FLASH_ADDR)
+
 
 		
 

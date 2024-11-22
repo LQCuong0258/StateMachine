@@ -1,4 +1,4 @@
-build/Active_Object.o: Core/Src/ActiveObject/Active_Object.c \
+build/Active_Object.o: Core/Src/ActiveObject/Src/Active_Object.c \
  Core/Src/ActiveObject/Inc/Active_Object.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Core/Inc/stm32f4xx_hal_conf.h \

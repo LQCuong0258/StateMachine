@@ -1,0 +1,178 @@
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"Button.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/ActiveObject/Src/Button.c"
+  20              		.section	.text.Button_dispatch,"ax",%progbits
+  21              		.align	1
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	Button_dispatch:
+  27              	.LVL0:
+  28              	.LFB139:
+   1:Core/Src/ActiveObject/Src/Button.c **** #include "Button.h"
+   2:Core/Src/ActiveObject/Src/Button.c **** 
+   3:Core/Src/ActiveObject/Src/Button.c **** static void Button_dispatch (Button * const self, Event const * const event) {
+  29              		.loc 1 3 78 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 3 78 is_stmt 0 view .LVU1
+  34 0000 08B5     		push	{r3, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 3, -8
+  38              		.cfi_offset 14, -4
+   4:Core/Src/ActiveObject/Src/Button.c ****   switch (event->signal)
+  39              		.loc 1 4 3 is_stmt 1 view .LVU2
+  40              		.loc 1 4 16 is_stmt 0 view .LVU3
+  41 0002 0B88     		ldrh	r3, [r1]
+  42              		.loc 1 4 3 view .LVU4
+  43 0004 012B     		cmp	r3, #1
+  44 0006 08D0     		beq	.L2
+  45 0008 022B     		cmp	r3, #2
+  46 000a 0CD1     		bne	.L1
+   5:Core/Src/ActiveObject/Src/Button.c ****   {
+   6:Core/Src/ActiveObject/Src/Button.c ****     case BUTTON_PRESSED_SIG:
+   7:Core/Src/ActiveObject/Src/Button.c ****       HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+   8:Core/Src/ActiveObject/Src/Button.c ****       break;
+   9:Core/Src/ActiveObject/Src/Button.c **** 
+  10:Core/Src/ActiveObject/Src/Button.c ****     case BUTTON_RELEASED_SIG:
+  11:Core/Src/ActiveObject/Src/Button.c ****       HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
+  47              		.loc 1 11 7 is_stmt 1 view .LVU5
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s 			page 2
+
+
+  48 000c 0022     		movs	r2, #0
+  49 000e 4FF48051 		mov	r1, #4096
+  50              	.LVL1:
+  51              		.loc 1 11 7 is_stmt 0 view .LVU6
+  52 0012 0548     		ldr	r0, .L6
+  53              	.LVL2:
+  54              		.loc 1 11 7 view .LVU7
+  55 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  56              	.LVL3:
+  12:Core/Src/ActiveObject/Src/Button.c ****       break;
+  57              		.loc 1 12 7 is_stmt 1 view .LVU8
+  13:Core/Src/ActiveObject/Src/Button.c ****   
+  14:Core/Src/ActiveObject/Src/Button.c ****   default:
+  15:Core/Src/ActiveObject/Src/Button.c ****     break;
+  16:Core/Src/ActiveObject/Src/Button.c ****   }
+  17:Core/Src/ActiveObject/Src/Button.c **** }
+  58              		.loc 1 17 1 is_stmt 0 view .LVU9
+  59 0018 05E0     		b	.L1
+  60              	.LVL4:
+  61              	.L2:
+   7:Core/Src/ActiveObject/Src/Button.c ****       break;
+  62              		.loc 1 7 7 is_stmt 1 view .LVU10
+  63 001a 0122     		movs	r2, #1
+  64 001c 4FF48051 		mov	r1, #4096
+  65              	.LVL5:
+   7:Core/Src/ActiveObject/Src/Button.c ****       break;
+  66              		.loc 1 7 7 is_stmt 0 view .LVU11
+  67 0020 0148     		ldr	r0, .L6
+  68              	.LVL6:
+   7:Core/Src/ActiveObject/Src/Button.c ****       break;
+  69              		.loc 1 7 7 view .LVU12
+  70 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  71              	.LVL7:
+   8:Core/Src/ActiveObject/Src/Button.c **** 
+  72              		.loc 1 8 7 is_stmt 1 view .LVU13
+  73              	.L1:
+  74              		.loc 1 17 1 is_stmt 0 view .LVU14
+  75 0026 08BD     		pop	{r3, pc}
+  76              	.L7:
+  77              		.align	2
+  78              	.L6:
+  79 0028 000C0240 		.word	1073875968
+  80              		.cfi_endproc
+  81              	.LFE139:
+  83              		.section	.text.Button_ctor,"ax",%progbits
+  84              		.align	1
+  85              		.global	Button_ctor
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	Button_ctor:
+  91              	.LVL8:
+  92              	.LFB140:
+  18:Core/Src/ActiveObject/Src/Button.c **** 
+  19:Core/Src/ActiveObject/Src/Button.c **** /**
+  20:Core/Src/ActiveObject/Src/Button.c ****  * Hàm này dùng để khởi tạo constructer
+  21:Core/Src/ActiveObject/Src/Button.c ****  * tức là gán hàm Button_dispatch vào vistual function là dispatch
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s 			page 3
+
+
+  22:Core/Src/ActiveObject/Src/Button.c ****  * của Active Object, khi đó Active Object của Button có thể gửi
+  23:Core/Src/ActiveObject/Src/Button.c ****  * các Event đến đúng dispatch function của nó.
+  24:Core/Src/ActiveObject/Src/Button.c ****  */
+  25:Core/Src/ActiveObject/Src/Button.c **** void Button_ctor (Button * const self) {
+  93              		.loc 1 25 40 is_stmt 1 view -0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		.loc 1 25 40 is_stmt 0 view .LVU16
+  98 0000 08B5     		push	{r3, lr}
+  99              	.LCFI1:
+ 100              		.cfi_def_cfa_offset 8
+ 101              		.cfi_offset 3, -8
+ 102              		.cfi_offset 14, -4
+  26:Core/Src/ActiveObject/Src/Button.c ****   Active_ctor (&self->super, (DispatchHandler) &Button_dispatch);
+ 103              		.loc 1 26 3 is_stmt 1 view .LVU17
+ 104 0002 0249     		ldr	r1, .L10
+ 105 0004 FFF7FEFF 		bl	Active_ctor
+ 106              	.LVL9:
+  27:Core/Src/ActiveObject/Src/Button.c **** }
+ 107              		.loc 1 27 1 is_stmt 0 view .LVU18
+ 108 0008 08BD     		pop	{r3, pc}
+ 109              	.L11:
+ 110 000a 00BF     		.align	2
+ 111              	.L10:
+ 112 000c 00000000 		.word	Button_dispatch
+ 113              		.cfi_endproc
+ 114              	.LFE140:
+ 116              		.text
+ 117              	.Letext0:
+ 118              		.file 2 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
+ 119              		.file 3 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
+ 120              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 121              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 122              		.file 6 "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h"
+ 123              		.file 7 "ThirdParty/FreeRTOS/include/FreeRTOS.h"
+ 124              		.file 8 "ThirdParty/FreeRTOS/include/task.h"
+ 125              		.file 9 "ThirdParty/FreeRTOS/include/queue.h"
+ 126              		.file 10 "Core/Src/ActiveObject/Inc/Active_Object.h"
+ 127              		.file 11 "Core/Src/ActiveObject/Inc/Button.h"
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Button.c
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:21     .text.Button_dispatch:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:26     .text.Button_dispatch:00000000 Button_dispatch
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:79     .text.Button_dispatch:00000028 $d
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:84     .text.Button_ctor:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:90     .text.Button_ctor:00000000 Button_ctor
+C:\Users\Lamp\AppData\Local\Temp\ccVTELky.s:112    .text.Button_ctor:0000000c $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+Active_ctor

@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F"
+                "${workspaceFolder}/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F",
+                "${workspaceFolder}/Core/Src/Drivers/Inc"
             ],
             "defines": [
                 "_DEBUG",

@@ -8,13 +8,19 @@
 #include "Active_Object.h"
 
 typedef enum {
-    TIME_OUT_SIG = USER_SIG,   // First-signal available to the users
-    BUTTON_PRESSED_SIG,
+    BUTTON_PRESSED_SIG = USER_SIG,
     BUTTON_RELEASED_SIG,
 } ButtonSignal;
 
-// typedef enum {
-    
-// } BlinkySignal;
+/* The Button Active Object */
+typedef struct {
+  Active super;
+} Button;
+
+void Button_ctor (Button * const self);
+
+Status Button_initial (Button * const self, void const * const para);
+Status Button_active (Button * const self, Event const * const para);
+
 
 #endif /* __BUTTON_H */
