@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   29:Core/Src/Drivers/Src/SysConfig.c ****   */
   30:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   31:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 2
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 2
 
 
   32:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
@@ -118,12 +118,12 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   43              	.LBB4:
   44              		.loc 1 70 3 view .LVU2
   45 0004 0024     		movs	r4, #0
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 3
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 3
 
 
   46 0006 0094     		str	r4, [sp]
   47              		.loc 1 70 3 view .LVU3
-  48 0008 264B     		ldr	r3, .L3
+  48 0008 244B     		ldr	r3, .L3
   49 000a 1A6B     		ldr	r2, [r3, #48]
   50 000c 42F08002 		orr	r2, r2, #128
   51 0010 1A63     		str	r2, [r3, #48]
@@ -178,12 +178,12 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   96 0048 0594     		str	r4, [sp, #20]
   97 004a 0694     		str	r4, [sp, #24]
   98 004c 0794     		str	r4, [sp, #28]
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 4
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 4
 
 
   75:Core/Src/Drivers/Src/SysConfig.c ****   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15, GPIO_PIN_RESET);
   99              		.loc 1 75 3 is_stmt 1 view .LVU21
- 100 004e 164E     		ldr	r6, .L3+4
+ 100 004e 144E     		ldr	r6, .L3+4
  101 0050 2246     		mov	r2, r4
  102 0052 4FF47041 		mov	r1, #61440
  103 0056 3046     		mov	r0, r6
@@ -237,8 +237,8 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   86:Core/Src/Drivers/Src/SysConfig.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  141              		.loc 1 86 3 view .LVU38
  142 0086 03A9     		add	r1, sp, #12
- 143 0088 0848     		ldr	r0, .L3+8
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 5
+ 143 0088 0648     		ldr	r0, .L3+8
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 5
 
 
  144 008a FFF7FEFF 		bl	HAL_GPIO_Init
@@ -252,240 +252,236 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  149 0092 0620     		movs	r0, #6
  150 0094 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  151              	.LVL3:
-  90:Core/Src/Drivers/Src/SysConfig.c ****   HAL_NVIC_EnableIRQ(EXTI0_IRQn);
- 152              		.loc 1 90 3 view .LVU40
- 153 0098 0620     		movs	r0, #6
- 154 009a FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 155              	.LVL4:
+  90:Core/Src/Drivers/Src/SysConfig.c ****   // HAL_NVIC_EnableIRQ(EXTI0_IRQn);
   91:Core/Src/Drivers/Src/SysConfig.c **** 
   92:Core/Src/Drivers/Src/SysConfig.c **** /* USER CODE BEGIN MX_GPIO_Init_2 */
   93:Core/Src/Drivers/Src/SysConfig.c **** /* USER CODE END MX_GPIO_Init_2 */
   94:Core/Src/Drivers/Src/SysConfig.c **** }
- 156              		.loc 1 94 1 is_stmt 0 view .LVU41
- 157 009e 08B0     		add	sp, sp, #32
- 158              	.LCFI2:
- 159              		.cfi_def_cfa_offset 16
- 160              		@ sp needed
- 161 00a0 70BD     		pop	{r4, r5, r6, pc}
- 162              	.L4:
- 163 00a2 00BF     		.align	2
- 164              	.L3:
- 165 00a4 00380240 		.word	1073887232
- 166 00a8 000C0240 		.word	1073875968
- 167 00ac 00000240 		.word	1073872896
- 168              		.cfi_endproc
- 169              	.LFE136:
- 171              		.section	.text.MX_TIM7_Init,"ax",%progbits
- 172              		.align	1
- 173              		.syntax unified
- 174              		.thumb
- 175              		.thumb_func
- 177              	MX_TIM7_Init:
- 178              	.LFB137:
+ 152              		.loc 1 94 1 is_stmt 0 view .LVU40
+ 153 0098 08B0     		add	sp, sp, #32
+ 154              	.LCFI2:
+ 155              		.cfi_def_cfa_offset 16
+ 156              		@ sp needed
+ 157 009a 70BD     		pop	{r4, r5, r6, pc}
+ 158              	.L4:
+ 159              		.align	2
+ 160              	.L3:
+ 161 009c 00380240 		.word	1073887232
+ 162 00a0 000C0240 		.word	1073875968
+ 163 00a4 00000240 		.word	1073872896
+ 164              		.cfi_endproc
+ 165              	.LFE136:
+ 167              		.section	.text.MX_TIM7_Init,"ax",%progbits
+ 168              		.align	1
+ 169              		.syntax unified
+ 170              		.thumb
+ 171              		.thumb_func
+ 173              	MX_TIM7_Init:
+ 174              	.LFB137:
   95:Core/Src/Drivers/Src/SysConfig.c **** 
   96:Core/Src/Drivers/Src/SysConfig.c **** /* USER CODE BEGIN 4 */
   97:Core/Src/Drivers/Src/SysConfig.c **** // Hàm khởi tạo cho Timer 7
   98:Core/Src/Drivers/Src/SysConfig.c **** static void MX_TIM7_Init (void) {
- 179              		.loc 1 98 33 is_stmt 1 view -0
- 180              		.cfi_startproc
- 181              		@ args = 0, pretend = 0, frame = 16
- 182              		@ frame_needed = 0, uses_anonymous_args = 0
- 183 0000 30B5     		push	{r4, r5, lr}
- 184              	.LCFI3:
- 185              		.cfi_def_cfa_offset 12
- 186              		.cfi_offset 4, -12
- 187              		.cfi_offset 5, -8
- 188              		.cfi_offset 14, -4
- 189 0002 85B0     		sub	sp, sp, #20
- 190              	.LCFI4:
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 6
-
-
- 191              		.cfi_def_cfa_offset 32
+ 175              		.loc 1 98 33 is_stmt 1 view -0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 16
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179 0000 30B5     		push	{r4, r5, lr}
+ 180              	.LCFI3:
+ 181              		.cfi_def_cfa_offset 12
+ 182              		.cfi_offset 4, -12
+ 183              		.cfi_offset 5, -8
+ 184              		.cfi_offset 14, -4
+ 185 0002 85B0     		sub	sp, sp, #20
+ 186              	.LCFI4:
+ 187              		.cfi_def_cfa_offset 32
   99:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_RCC_TIM7_CLK_ENABLE(); // Bật clock cho Timer 7
- 192              		.loc 1 99 3 view .LVU43
- 193              	.LBB7:
- 194              		.loc 1 99 3 view .LVU44
- 195 0004 0025     		movs	r5, #0
- 196 0006 0195     		str	r5, [sp, #4]
- 197              		.loc 1 99 3 view .LVU45
- 198 0008 144B     		ldr	r3, .L7
- 199 000a 1A6C     		ldr	r2, [r3, #64]
- 200 000c 42F02002 		orr	r2, r2, #32
- 201 0010 1A64     		str	r2, [r3, #64]
+ 188              		.loc 1 99 3 view .LVU42
+ 189              	.LBB7:
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 6
+
+
+ 190              		.loc 1 99 3 view .LVU43
+ 191 0004 0025     		movs	r5, #0
+ 192 0006 0195     		str	r5, [sp, #4]
+ 193              		.loc 1 99 3 view .LVU44
+ 194 0008 144B     		ldr	r3, .L7
+ 195 000a 1A6C     		ldr	r2, [r3, #64]
+ 196 000c 42F02002 		orr	r2, r2, #32
+ 197 0010 1A64     		str	r2, [r3, #64]
+ 198              		.loc 1 99 3 view .LVU45
+ 199 0012 1B6C     		ldr	r3, [r3, #64]
+ 200 0014 03F02003 		and	r3, r3, #32
+ 201 0018 0193     		str	r3, [sp, #4]
  202              		.loc 1 99 3 view .LVU46
- 203 0012 1B6C     		ldr	r3, [r3, #64]
- 204 0014 03F02003 		and	r3, r3, #32
- 205 0018 0193     		str	r3, [sp, #4]
- 206              		.loc 1 99 3 view .LVU47
- 207 001a 019B     		ldr	r3, [sp, #4]
- 208              	.LBE7:
- 209              		.loc 1 99 3 view .LVU48
+ 203 001a 019B     		ldr	r3, [sp, #4]
+ 204              	.LBE7:
+ 205              		.loc 1 99 3 view .LVU47
  100:Core/Src/Drivers/Src/SysConfig.c **** 
  101:Core/Src/Drivers/Src/SysConfig.c ****   htim7.Instance = TIM7;
- 210              		.loc 1 101 3 view .LVU49
- 211              		.loc 1 101 18 is_stmt 0 view .LVU50
- 212 001c 104C     		ldr	r4, .L7+4
- 213 001e 114B     		ldr	r3, .L7+8
- 214 0020 2360     		str	r3, [r4]
+ 206              		.loc 1 101 3 view .LVU48
+ 207              		.loc 1 101 18 is_stmt 0 view .LVU49
+ 208 001c 104C     		ldr	r4, .L7+4
+ 209 001e 114B     		ldr	r3, .L7+8
+ 210 0020 2360     		str	r3, [r4]
  102:Core/Src/Drivers/Src/SysConfig.c ****   htim7.Init.Prescaler = 8400 - 1; // Prescaler để Timer chạy ở tần số 100 kHz (chu kỳ
- 215              		.loc 1 102 3 is_stmt 1 view .LVU51
- 216              		.loc 1 102 24 is_stmt 0 view .LVU52
- 217 0022 42F2CF03 		movw	r3, #8399
- 218 0026 6360     		str	r3, [r4, #4]
+ 211              		.loc 1 102 3 is_stmt 1 view .LVU50
+ 212              		.loc 1 102 24 is_stmt 0 view .LVU51
+ 213 0022 42F2CF03 		movw	r3, #8399
+ 214 0026 6360     		str	r3, [r4, #4]
  103:Core/Src/Drivers/Src/SysConfig.c ****   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
- 219              		.loc 1 103 3 is_stmt 1 view .LVU53
- 220              		.loc 1 103 26 is_stmt 0 view .LVU54
- 221 0028 A560     		str	r5, [r4, #8]
+ 215              		.loc 1 103 3 is_stmt 1 view .LVU52
+ 216              		.loc 1 103 26 is_stmt 0 view .LVU53
+ 217 0028 A560     		str	r5, [r4, #8]
  104:Core/Src/Drivers/Src/SysConfig.c ****   htim7.Init.Period = 10000 - 1; // Đặt chu kỳ ngắt là 100 ms
- 222              		.loc 1 104 3 is_stmt 1 view .LVU55
- 223              		.loc 1 104 21 is_stmt 0 view .LVU56
- 224 002a 42F20F73 		movw	r3, #9999
- 225 002e E360     		str	r3, [r4, #12]
+ 218              		.loc 1 104 3 is_stmt 1 view .LVU54
+ 219              		.loc 1 104 21 is_stmt 0 view .LVU55
+ 220 002a 42F20F73 		movw	r3, #9999
+ 221 002e E360     		str	r3, [r4, #12]
  105:Core/Src/Drivers/Src/SysConfig.c ****   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
- 226              		.loc 1 105 3 is_stmt 1 view .LVU57
- 227              		.loc 1 105 32 is_stmt 0 view .LVU58
- 228 0030 8023     		movs	r3, #128
- 229 0032 A361     		str	r3, [r4, #24]
+ 222              		.loc 1 105 3 is_stmt 1 view .LVU56
+ 223              		.loc 1 105 32 is_stmt 0 view .LVU57
+ 224 0030 8023     		movs	r3, #128
+ 225 0032 A361     		str	r3, [r4, #24]
  106:Core/Src/Drivers/Src/SysConfig.c **** 
  107:Core/Src/Drivers/Src/SysConfig.c ****   if (HAL_TIM_Base_Init(&htim7) != HAL_OK) {
- 230              		.loc 1 107 3 is_stmt 1 view .LVU59
- 231              		.loc 1 107 7 is_stmt 0 view .LVU60
- 232 0034 2046     		mov	r0, r4
- 233 0036 FFF7FEFF 		bl	HAL_TIM_Base_Init
- 234              	.LVL5:
+ 226              		.loc 1 107 3 is_stmt 1 view .LVU58
+ 227              		.loc 1 107 7 is_stmt 0 view .LVU59
+ 228 0034 2046     		mov	r0, r4
+ 229 0036 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 230              	.LVL4:
  108:Core/Src/Drivers/Src/SysConfig.c ****       // Xử lý lỗi nếu cần
  109:Core/Src/Drivers/Src/SysConfig.c ****   }
- 235              		.loc 1 109 3 is_stmt 1 view .LVU61
+ 231              		.loc 1 109 3 is_stmt 1 view .LVU60
  110:Core/Src/Drivers/Src/SysConfig.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 7
+ 232              		.loc 1 110 3 view .LVU61
+ 233              		.loc 1 110 27 is_stmt 0 view .LVU62
+ 234 003a 0295     		str	r5, [sp, #8]
+ 235 003c 0395     		str	r5, [sp, #12]
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 7
 
 
- 236              		.loc 1 110 3 view .LVU62
- 237              		.loc 1 110 27 is_stmt 0 view .LVU63
- 238 003a 0295     		str	r5, [sp, #8]
- 239 003c 0395     		str	r5, [sp, #12]
  111:Core/Src/Drivers/Src/SysConfig.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 240              		.loc 1 111 3 is_stmt 1 view .LVU64
+ 236              		.loc 1 111 3 is_stmt 1 view .LVU63
  112:Core/Src/Drivers/Src/SysConfig.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
- 241              		.loc 1 112 3 view .LVU65
+ 237              		.loc 1 112 3 view .LVU64
  113:Core/Src/Drivers/Src/SysConfig.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
- 242              		.loc 1 113 3 view .LVU66
- 243              		.loc 1 113 7 is_stmt 0 view .LVU67
- 244 003e 02A9     		add	r1, sp, #8
- 245 0040 2046     		mov	r0, r4
- 246 0042 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 247              	.LVL6:
+ 238              		.loc 1 113 3 view .LVU65
+ 239              		.loc 1 113 7 is_stmt 0 view .LVU66
+ 240 003e 02A9     		add	r1, sp, #8
+ 241 0040 2046     		mov	r0, r4
+ 242 0042 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 243              	.LVL5:
  114:Core/Src/Drivers/Src/SysConfig.c ****   {
  115:Core/Src/Drivers/Src/SysConfig.c ****       // Error_Handler();
  116:Core/Src/Drivers/Src/SysConfig.c ****   }
- 248              		.loc 1 116 3 is_stmt 1 view .LVU68
+ 244              		.loc 1 116 3 is_stmt 1 view .LVU67
  117:Core/Src/Drivers/Src/SysConfig.c **** 
  118:Core/Src/Drivers/Src/SysConfig.c ****   // Kích hoạt ngắt
  119:Core/Src/Drivers/Src/SysConfig.c ****   HAL_NVIC_SetPriority(TIM7_IRQn, 8, 0);
- 249              		.loc 1 119 3 view .LVU69
- 250 0046 2A46     		mov	r2, r5
- 251 0048 0821     		movs	r1, #8
- 252 004a 3720     		movs	r0, #55
- 253 004c FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 254              	.LVL7:
+ 245              		.loc 1 119 3 view .LVU68
+ 246 0046 2A46     		mov	r2, r5
+ 247 0048 0821     		movs	r1, #8
+ 248 004a 3720     		movs	r0, #55
+ 249 004c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 250              	.LVL6:
  120:Core/Src/Drivers/Src/SysConfig.c ****   HAL_NVIC_EnableIRQ(TIM7_IRQn);
- 255              		.loc 1 120 3 view .LVU70
- 256 0050 3720     		movs	r0, #55
- 257 0052 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 258              	.LVL8:
+ 251              		.loc 1 120 3 view .LVU69
+ 252 0050 3720     		movs	r0, #55
+ 253 0052 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 254              	.LVL7:
  121:Core/Src/Drivers/Src/SysConfig.c **** }
- 259              		.loc 1 121 1 is_stmt 0 view .LVU71
- 260 0056 05B0     		add	sp, sp, #20
- 261              	.LCFI5:
- 262              		.cfi_def_cfa_offset 12
- 263              		@ sp needed
- 264 0058 30BD     		pop	{r4, r5, pc}
- 265              	.L8:
- 266 005a 00BF     		.align	2
- 267              	.L7:
- 268 005c 00380240 		.word	1073887232
- 269 0060 00000000 		.word	htim7
- 270 0064 00140040 		.word	1073746944
- 271              		.cfi_endproc
- 272              	.LFE137:
- 274              		.section	.text.MX_Periferal_Init,"ax",%progbits
- 275              		.align	1
- 276              		.global	MX_Periferal_Init
- 277              		.syntax unified
- 278              		.thumb
- 279              		.thumb_func
- 281              	MX_Periferal_Init:
- 282              	.LFB134:
+ 255              		.loc 1 121 1 is_stmt 0 view .LVU70
+ 256 0056 05B0     		add	sp, sp, #20
+ 257              	.LCFI5:
+ 258              		.cfi_def_cfa_offset 12
+ 259              		@ sp needed
+ 260 0058 30BD     		pop	{r4, r5, pc}
+ 261              	.L8:
+ 262 005a 00BF     		.align	2
+ 263              	.L7:
+ 264 005c 00380240 		.word	1073887232
+ 265 0060 00000000 		.word	htim7
+ 266 0064 00140040 		.word	1073746944
+ 267              		.cfi_endproc
+ 268              	.LFE137:
+ 270              		.section	.text.MX_Periferal_Init,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	MX_Periferal_Init
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 277              	MX_Periferal_Init:
+ 278              	.LFB134:
    8:Core/Src/Drivers/Src/SysConfig.c ****     MX_GPIO_Init();
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 8
+ 279              		.loc 1 8 31 is_stmt 1 view -0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 8
 
 
- 283              		.loc 1 8 31 is_stmt 1 view -0
- 284              		.cfi_startproc
- 285              		@ args = 0, pretend = 0, frame = 0
- 286              		@ frame_needed = 0, uses_anonymous_args = 0
- 287 0000 08B5     		push	{r3, lr}
- 288              	.LCFI6:
- 289              		.cfi_def_cfa_offset 8
- 290              		.cfi_offset 3, -8
- 291              		.cfi_offset 14, -4
+ 283 0000 08B5     		push	{r3, lr}
+ 284              	.LCFI6:
+ 285              		.cfi_def_cfa_offset 8
+ 286              		.cfi_offset 3, -8
+ 287              		.cfi_offset 14, -4
    9:Core/Src/Drivers/Src/SysConfig.c ****     MX_TIM7_Init();
- 292              		.loc 1 9 5 view .LVU73
- 293 0002 FFF7FEFF 		bl	MX_GPIO_Init
- 294              	.LVL9:
+ 288              		.loc 1 9 5 view .LVU72
+ 289 0002 FFF7FEFF 		bl	MX_GPIO_Init
+ 290              	.LVL8:
   10:Core/Src/Drivers/Src/SysConfig.c **** }
- 295              		.loc 1 10 5 view .LVU74
- 296 0006 FFF7FEFF 		bl	MX_TIM7_Init
- 297              	.LVL10:
+ 291              		.loc 1 10 5 view .LVU73
+ 292 0006 FFF7FEFF 		bl	MX_TIM7_Init
+ 293              	.LVL9:
   11:Core/Src/Drivers/Src/SysConfig.c **** 
- 298              		.loc 1 11 1 is_stmt 0 view .LVU75
- 299 000a 08BD     		pop	{r3, pc}
- 300              		.cfi_endproc
- 301              	.LFE134:
- 303              		.section	.text.TIM7_IRQHandler,"ax",%progbits
- 304              		.align	1
- 305              		.global	TIM7_IRQHandler
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 310              	TIM7_IRQHandler:
- 311              	.LFB138:
+ 294              		.loc 1 11 1 is_stmt 0 view .LVU74
+ 295 000a 08BD     		pop	{r3, pc}
+ 296              		.cfi_endproc
+ 297              	.LFE134:
+ 299              		.section	.text.TIM7_IRQHandler,"ax",%progbits
+ 300              		.align	1
+ 301              		.global	TIM7_IRQHandler
+ 302              		.syntax unified
+ 303              		.thumb
+ 304              		.thumb_func
+ 306              	TIM7_IRQHandler:
+ 307              	.LFB138:
  122:Core/Src/Drivers/Src/SysConfig.c **** void TIM7_IRQHandler(void) {
- 312              		.loc 1 122 28 is_stmt 1 view -0
- 313              		.cfi_startproc
- 314              		@ args = 0, pretend = 0, frame = 0
- 315              		@ frame_needed = 0, uses_anonymous_args = 0
- 316 0000 08B5     		push	{r3, lr}
- 317              	.LCFI7:
- 318              		.cfi_def_cfa_offset 8
- 319              		.cfi_offset 3, -8
- 320              		.cfi_offset 14, -4
+ 308              		.loc 1 122 28 is_stmt 1 view -0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312 0000 08B5     		push	{r3, lr}
+ 313              	.LCFI7:
+ 314              		.cfi_def_cfa_offset 8
+ 315              		.cfi_offset 3, -8
+ 316              		.cfi_offset 14, -4
  123:Core/Src/Drivers/Src/SysConfig.c ****   HAL_TIM_IRQHandler(&htim7);
- 321              		.loc 1 123 3 view .LVU77
- 322 0002 0248     		ldr	r0, .L13
- 323 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 324              	.LVL11:
+ 317              		.loc 1 123 3 view .LVU76
+ 318 0002 0248     		ldr	r0, .L13
+ 319 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 320              	.LVL10:
  124:Core/Src/Drivers/Src/SysConfig.c **** }
- 325              		.loc 1 124 1 is_stmt 0 view .LVU78
- 326 0008 08BD     		pop	{r3, pc}
- 327              	.L14:
- 328 000a 00BF     		.align	2
- 329              	.L13:
- 330 000c 00000000 		.word	htim7
- 331              		.cfi_endproc
- 332              	.LFE138:
- 334              		.section	.text.Error_Handler,"ax",%progbits
- 335              		.align	1
- 336              		.global	Error_Handler
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 9
+ 321              		.loc 1 124 1 is_stmt 0 view .LVU77
+ 322 0008 08BD     		pop	{r3, pc}
+ 323              	.L14:
+ 324 000a 00BF     		.align	2
+ 325              	.L13:
+ 326 000c 00000000 		.word	htim7
+ 327              		.cfi_endproc
+ 328              	.LFE138:
+ 330              		.section	.text.Error_Handler,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	Error_Handler
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 337              	Error_Handler:
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 9
 
 
- 337              		.syntax unified
- 338              		.thumb
- 339              		.thumb_func
- 341              	Error_Handler:
- 342              	.LFB139:
+ 338              	.LFB139:
  125:Core/Src/Drivers/Src/SysConfig.c **** /* USER CODE END 4 */
  126:Core/Src/Drivers/Src/SysConfig.c **** 
  127:Core/Src/Drivers/Src/SysConfig.c **** /**
@@ -494,19 +490,19 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  130:Core/Src/Drivers/Src/SysConfig.c ****   */
  131:Core/Src/Drivers/Src/SysConfig.c **** void Error_Handler(void)
  132:Core/Src/Drivers/Src/SysConfig.c **** {
- 343              		.loc 1 132 1 is_stmt 1 view -0
- 344              		.cfi_startproc
- 345              		@ Volatile: function does not return.
- 346              		@ args = 0, pretend = 0, frame = 0
- 347              		@ frame_needed = 0, uses_anonymous_args = 0
- 348              		@ link register save eliminated.
+ 339              		.loc 1 132 1 is_stmt 1 view -0
+ 340              		.cfi_startproc
+ 341              		@ Volatile: function does not return.
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 344              		@ link register save eliminated.
  133:Core/Src/Drivers/Src/SysConfig.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  134:Core/Src/Drivers/Src/SysConfig.c ****   /* User can add his own implementation to report the HAL error return state */
  135:Core/Src/Drivers/Src/SysConfig.c ****   __disable_irq();
- 349              		.loc 1 135 3 view .LVU80
- 350              	.LBB8:
- 351              	.LBI8:
- 352              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 345              		.loc 1 135 3 view .LVU79
+ 346              	.LBB8:
+ 347              	.LBI8:
+ 348              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -538,13 +534,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 10
-
-
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 10
+
+
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -598,13 +594,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 11
-
-
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 11
+
+
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -658,13 +654,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
  145:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 12
-
-
  146:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
  148:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
  149:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 12
+
+
  150:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  151:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
  152:Drivers/CMSIS/Include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
@@ -718,13 +714,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  200:Drivers/CMSIS/Include/cmsis_gcc.h ****   *((uint64_t *)stackTop) = __TZ_STACK_SEAL_VALUE;
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  202:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 13
-
-
  203:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  204:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  205:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
  206:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 13
+
+
  207:Drivers/CMSIS/Include/cmsis_gcc.h ****   Access to dedicated instructions
  208:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  209:Drivers/CMSIS/Include/cmsis_gcc.h **** */
@@ -778,13 +774,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  257:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  258:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
  259:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 14
-
-
  260:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  261:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  262:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  263:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 14
+
+
  264:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  265:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
  266:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
@@ -838,13 +834,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  314:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  315:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  316:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 15
-
-
  317:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  318:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  319:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  320:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 15
+
+
  321:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse byte order (16 bit)
  322:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For exam
  323:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
@@ -898,13 +894,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  371:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  373:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 16
-
-
  374:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  375:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  377:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 16
+
+
  378:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  379:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
  380:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM ("rbit %0, %1" : "=r" (result) : "r" (value) );
@@ -958,13 +954,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  428:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive LDR instruction for 8 bit value.
  429:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  430:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 17
-
-
  431:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  432:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
  433:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  434:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 17
+
+
  435:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  436:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
  437:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("ldrexb %0, %1" : "=r" (result) : "Q" (*addr) );
@@ -1018,13 +1014,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  485:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  486:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STR Exclusive (8 bit)
  487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive STR instruction for 8 bit values.
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 18
-
-
  488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  490:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  491:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 18
+
+
  492:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  493:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
  494:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1078,13 +1074,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  542:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("clrex" ::: "memory");
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  544:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 19
-
-
  545:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  546:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  547:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
  548:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 19
+
+
  549:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  550:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  551:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
@@ -1138,13 +1134,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  599:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  601:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 20
-
-
  602:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  603:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
  604:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 8 bit value.
  605:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 20
+
+
  606:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
  607:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  608:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDRBT(volatile uint8_t *ptr)
@@ -1198,13 +1194,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  656:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  658:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 21
-
-
  659:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  660:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  661:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  662:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STRT Unprivileged (8 bit)
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 21
+
+
  663:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a Unprivileged STRT instruction for 8 bit values.
  664:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  665:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
@@ -1258,13 +1254,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  713:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > max)
  714:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  715:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 22
-
-
  716:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  717:Drivers/CMSIS/Include/cmsis_gcc.h ****     else if (val < min)
  718:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  719:Drivers/CMSIS/Include/cmsis_gcc.h ****       return min;
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 22
+
+
  720:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  721:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
  722:Drivers/CMSIS/Include/cmsis_gcc.h ****   return val;
@@ -1318,13 +1314,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  770:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  772:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire (16 bit)
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 23
-
-
  773:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
  774:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  775:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
  776:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 23
+
+
  777:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDAH(volatile uint16_t *ptr)
  778:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  779:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
@@ -1378,13 +1374,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  827:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STL instruction for 32 bit values.
  828:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  829:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 24
-
-
  830:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  831:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
  832:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  833:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("stl %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) : "memory" );
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 24
+
+
  834:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  835:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  836:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1438,13 +1434,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  884:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STLB exclusive instruction for 8 bit values.
  885:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  886:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 25
-
-
  887:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  888:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  889:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  890:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXB(uint8_t value, volatile uint8_t *ptr)
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 25
+
+
  891:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  892:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
  893:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1498,13 +1494,13 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  941:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  943:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 26
-
-
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  945:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  946:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing special-purpose register PRIMASK.
  947:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 26
+
+
  948:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  949:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  950:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1518,310 +1514,310 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 1
  958:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  959:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  960:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 353              		.loc 2 960 27 view .LVU81
- 354              	.LBB9:
+ 349              		.loc 2 960 27 view .LVU80
+ 350              	.LBB9:
  961:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  962:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 355              		.loc 2 962 3 view .LVU82
- 356              		.syntax unified
- 357              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 358 0000 72B6     		cpsid i
- 359              	@ 0 "" 2
- 360              		.thumb
- 361              		.syntax unified
- 362              	.L16:
- 363              	.LBE9:
- 364              	.LBE8:
+ 351              		.loc 2 962 3 view .LVU81
+ 352              		.syntax unified
+ 353              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 354 0000 72B6     		cpsid i
+ 355              	@ 0 "" 2
+ 356              		.thumb
+ 357              		.syntax unified
+ 358              	.L16:
+ 359              	.LBE9:
+ 360              	.LBE8:
  136:Core/Src/Drivers/Src/SysConfig.c ****   while (1)
- 365              		.loc 1 136 3 view .LVU83
+ 361              		.loc 1 136 3 view .LVU82
  137:Core/Src/Drivers/Src/SysConfig.c ****   {
  138:Core/Src/Drivers/Src/SysConfig.c ****   }
- 366              		.loc 1 138 3 view .LVU84
+ 362              		.loc 1 138 3 view .LVU83
  136:Core/Src/Drivers/Src/SysConfig.c ****   while (1)
- 367              		.loc 1 136 9 view .LVU85
- 368 0002 FEE7     		b	.L16
- 369              		.cfi_endproc
- 370              	.LFE139:
- 372              		.section	.text.SystemClock_Config,"ax",%progbits
- 373              		.align	1
- 374              		.global	SystemClock_Config
- 375              		.syntax unified
- 376              		.thumb
- 377              		.thumb_func
- 379              	SystemClock_Config:
- 380              	.LFB135:
+ 363              		.loc 1 136 9 view .LVU84
+ 364 0002 FEE7     		b	.L16
+ 365              		.cfi_endproc
+ 366              	.LFE139:
+ 368              		.section	.text.SystemClock_Config,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	SystemClock_Config
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 375              	SystemClock_Config:
+ 376              	.LFB135:
   18:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 381              		.loc 1 18 1 view -0
- 382              		.cfi_startproc
- 383              		@ args = 0, pretend = 0, frame = 80
- 384              		@ frame_needed = 0, uses_anonymous_args = 0
- 385 0000 00B5     		push	{lr}
- 386              	.LCFI8:
- 387              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 27
+ 377              		.loc 1 18 1 view -0
+ 378              		.cfi_startproc
+ 379              		@ args = 0, pretend = 0, frame = 80
+ 380              		@ frame_needed = 0, uses_anonymous_args = 0
+ 381 0000 00B5     		push	{lr}
+ 382              	.LCFI8:
+ 383              		.cfi_def_cfa_offset 4
+ 384              		.cfi_offset 14, -4
+ 385 0002 95B0     		sub	sp, sp, #84
+ 386              	.LCFI9:
+ 387              		.cfi_def_cfa_offset 88
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 27
 
 
- 388              		.cfi_offset 14, -4
- 389 0002 95B0     		sub	sp, sp, #84
- 390              	.LCFI9:
- 391              		.cfi_def_cfa_offset 88
   19:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 392              		.loc 1 19 3 view .LVU87
+ 388              		.loc 1 19 3 view .LVU86
   19:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 393              		.loc 1 19 22 is_stmt 0 view .LVU88
- 394 0004 3022     		movs	r2, #48
- 395 0006 0021     		movs	r1, #0
- 396 0008 08A8     		add	r0, sp, #32
- 397 000a FFF7FEFF 		bl	memset
- 398              	.LVL12:
+ 389              		.loc 1 19 22 is_stmt 0 view .LVU87
+ 390 0004 3022     		movs	r2, #48
+ 391 0006 0021     		movs	r1, #0
+ 392 0008 08A8     		add	r0, sp, #32
+ 393 000a FFF7FEFF 		bl	memset
+ 394              	.LVL11:
   20:Core/Src/Drivers/Src/SysConfig.c **** 
- 399              		.loc 1 20 3 is_stmt 1 view .LVU89
+ 395              		.loc 1 20 3 is_stmt 1 view .LVU88
   20:Core/Src/Drivers/Src/SysConfig.c **** 
- 400              		.loc 1 20 22 is_stmt 0 view .LVU90
- 401 000e 0023     		movs	r3, #0
- 402 0010 0393     		str	r3, [sp, #12]
- 403 0012 0493     		str	r3, [sp, #16]
- 404 0014 0593     		str	r3, [sp, #20]
- 405 0016 0693     		str	r3, [sp, #24]
- 406 0018 0793     		str	r3, [sp, #28]
+ 396              		.loc 1 20 22 is_stmt 0 view .LVU89
+ 397 000e 0023     		movs	r3, #0
+ 398 0010 0393     		str	r3, [sp, #12]
+ 399 0012 0493     		str	r3, [sp, #16]
+ 400 0014 0593     		str	r3, [sp, #20]
+ 401 0016 0693     		str	r3, [sp, #24]
+ 402 0018 0793     		str	r3, [sp, #28]
   24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 407              		.loc 1 24 3 is_stmt 1 view .LVU91
- 408              	.LBB10:
+ 403              		.loc 1 24 3 is_stmt 1 view .LVU90
+ 404              	.LBB10:
   24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 409              		.loc 1 24 3 view .LVU92
- 410 001a 0193     		str	r3, [sp, #4]
+ 405              		.loc 1 24 3 view .LVU91
+ 406 001a 0193     		str	r3, [sp, #4]
   24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 411              		.loc 1 24 3 view .LVU93
- 412 001c 1F4A     		ldr	r2, .L23
- 413 001e 116C     		ldr	r1, [r2, #64]
- 414 0020 41F08051 		orr	r1, r1, #268435456
- 415 0024 1164     		str	r1, [r2, #64]
+ 407              		.loc 1 24 3 view .LVU92
+ 408 001c 1F4A     		ldr	r2, .L23
+ 409 001e 116C     		ldr	r1, [r2, #64]
+ 410 0020 41F08051 		orr	r1, r1, #268435456
+ 411 0024 1164     		str	r1, [r2, #64]
+  24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 412              		.loc 1 24 3 view .LVU93
+ 413 0026 126C     		ldr	r2, [r2, #64]
+ 414 0028 02F08052 		and	r2, r2, #268435456
+ 415 002c 0192     		str	r2, [sp, #4]
   24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
  416              		.loc 1 24 3 view .LVU94
- 417 0026 126C     		ldr	r2, [r2, #64]
- 418 0028 02F08052 		and	r2, r2, #268435456
- 419 002c 0192     		str	r2, [sp, #4]
+ 417 002e 019A     		ldr	r2, [sp, #4]
+ 418              	.LBE10:
   24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 420              		.loc 1 24 3 view .LVU95
- 421 002e 019A     		ldr	r2, [sp, #4]
- 422              	.LBE10:
-  24:Core/Src/Drivers/Src/SysConfig.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 423              		.loc 1 24 3 view .LVU96
+ 419              		.loc 1 24 3 view .LVU95
   25:Core/Src/Drivers/Src/SysConfig.c **** 
- 424              		.loc 1 25 3 view .LVU97
- 425              	.LBB11:
+ 420              		.loc 1 25 3 view .LVU96
+ 421              	.LBB11:
   25:Core/Src/Drivers/Src/SysConfig.c **** 
- 426              		.loc 1 25 3 view .LVU98
- 427 0030 0293     		str	r3, [sp, #8]
+ 422              		.loc 1 25 3 view .LVU97
+ 423 0030 0293     		str	r3, [sp, #8]
   25:Core/Src/Drivers/Src/SysConfig.c **** 
- 428              		.loc 1 25 3 view .LVU99
- 429 0032 1B4A     		ldr	r2, .L23+4
- 430 0034 1168     		ldr	r1, [r2]
- 431 0036 41F48041 		orr	r1, r1, #16384
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 28
+ 424              		.loc 1 25 3 view .LVU98
+ 425 0032 1B4A     		ldr	r2, .L23+4
+ 426 0034 1168     		ldr	r1, [r2]
+ 427 0036 41F48041 		orr	r1, r1, #16384
+ 428 003a 1160     		str	r1, [r2]
+  25:Core/Src/Drivers/Src/SysConfig.c **** 
+ 429              		.loc 1 25 3 view .LVU99
+ 430 003c 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 28
 
 
- 432 003a 1160     		str	r1, [r2]
+ 431 003e 02F48042 		and	r2, r2, #16384
+ 432 0042 0292     		str	r2, [sp, #8]
   25:Core/Src/Drivers/Src/SysConfig.c **** 
  433              		.loc 1 25 3 view .LVU100
- 434 003c 1268     		ldr	r2, [r2]
- 435 003e 02F48042 		and	r2, r2, #16384
- 436 0042 0292     		str	r2, [sp, #8]
+ 434 0044 029A     		ldr	r2, [sp, #8]
+ 435              	.LBE11:
   25:Core/Src/Drivers/Src/SysConfig.c **** 
- 437              		.loc 1 25 3 view .LVU101
- 438 0044 029A     		ldr	r2, [sp, #8]
- 439              	.LBE11:
-  25:Core/Src/Drivers/Src/SysConfig.c **** 
- 440              		.loc 1 25 3 view .LVU102
+ 436              		.loc 1 25 3 view .LVU101
   30:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 441              		.loc 1 30 3 view .LVU103
+ 437              		.loc 1 30 3 view .LVU102
   30:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 442              		.loc 1 30 36 is_stmt 0 view .LVU104
- 443 0046 0222     		movs	r2, #2
- 444 0048 0892     		str	r2, [sp, #32]
+ 438              		.loc 1 30 36 is_stmt 0 view .LVU103
+ 439 0046 0222     		movs	r2, #2
+ 440 0048 0892     		str	r2, [sp, #32]
   31:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 445              		.loc 1 31 3 is_stmt 1 view .LVU105
+ 441              		.loc 1 31 3 is_stmt 1 view .LVU104
   31:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 446              		.loc 1 31 30 is_stmt 0 view .LVU106
- 447 004a 0121     		movs	r1, #1
- 448 004c 0B91     		str	r1, [sp, #44]
+ 442              		.loc 1 31 30 is_stmt 0 view .LVU105
+ 443 004a 0121     		movs	r1, #1
+ 444 004c 0B91     		str	r1, [sp, #44]
   32:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 449              		.loc 1 32 3 is_stmt 1 view .LVU107
+ 445              		.loc 1 32 3 is_stmt 1 view .LVU106
   32:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 450              		.loc 1 32 41 is_stmt 0 view .LVU108
- 451 004e 1021     		movs	r1, #16
- 452 0050 0C91     		str	r1, [sp, #48]
+ 446              		.loc 1 32 41 is_stmt 0 view .LVU107
+ 447 004e 1021     		movs	r1, #16
+ 448 0050 0C91     		str	r1, [sp, #48]
   33:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
- 453              		.loc 1 33 3 is_stmt 1 view .LVU109
+ 449              		.loc 1 33 3 is_stmt 1 view .LVU108
   33:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
- 454              		.loc 1 33 34 is_stmt 0 view .LVU110
- 455 0052 0E92     		str	r2, [sp, #56]
+ 450              		.loc 1 33 34 is_stmt 0 view .LVU109
+ 451 0052 0E92     		str	r2, [sp, #56]
   34:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLM = 8;
- 456              		.loc 1 34 3 is_stmt 1 view .LVU111
+ 452              		.loc 1 34 3 is_stmt 1 view .LVU110
   34:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLM = 8;
- 457              		.loc 1 34 35 is_stmt 0 view .LVU112
- 458 0054 0F93     		str	r3, [sp, #60]
+ 453              		.loc 1 34 35 is_stmt 0 view .LVU111
+ 454 0054 0F93     		str	r3, [sp, #60]
   35:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLN = 168;
- 459              		.loc 1 35 3 is_stmt 1 view .LVU113
+ 455              		.loc 1 35 3 is_stmt 1 view .LVU112
   35:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLN = 168;
- 460              		.loc 1 35 30 is_stmt 0 view .LVU114
- 461 0056 0823     		movs	r3, #8
- 462 0058 1093     		str	r3, [sp, #64]
+ 456              		.loc 1 35 30 is_stmt 0 view .LVU113
+ 457 0056 0823     		movs	r3, #8
+ 458 0058 1093     		str	r3, [sp, #64]
   36:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 463              		.loc 1 36 3 is_stmt 1 view .LVU115
+ 459              		.loc 1 36 3 is_stmt 1 view .LVU114
   36:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 464              		.loc 1 36 30 is_stmt 0 view .LVU116
- 465 005a A823     		movs	r3, #168
- 466 005c 1193     		str	r3, [sp, #68]
+ 460              		.loc 1 36 30 is_stmt 0 view .LVU115
+ 461 005a A823     		movs	r3, #168
+ 462 005c 1193     		str	r3, [sp, #68]
   37:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 467              		.loc 1 37 3 is_stmt 1 view .LVU117
+ 463              		.loc 1 37 3 is_stmt 1 view .LVU116
   37:Core/Src/Drivers/Src/SysConfig.c ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 468              		.loc 1 37 30 is_stmt 0 view .LVU118
- 469 005e 1292     		str	r2, [sp, #72]
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 29
-
-
+ 464              		.loc 1 37 30 is_stmt 0 view .LVU117
+ 465 005e 1292     		str	r2, [sp, #72]
   38:Core/Src/Drivers/Src/SysConfig.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 470              		.loc 1 38 3 is_stmt 1 view .LVU119
+ 466              		.loc 1 38 3 is_stmt 1 view .LVU118
   38:Core/Src/Drivers/Src/SysConfig.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 471              		.loc 1 38 30 is_stmt 0 view .LVU120
- 472 0060 0423     		movs	r3, #4
- 473 0062 1393     		str	r3, [sp, #76]
-  39:Core/Src/Drivers/Src/SysConfig.c ****   {
- 474              		.loc 1 39 3 is_stmt 1 view .LVU121
-  39:Core/Src/Drivers/Src/SysConfig.c ****   {
- 475              		.loc 1 39 7 is_stmt 0 view .LVU122
- 476 0064 08A8     		add	r0, sp, #32
- 477 0066 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 478              	.LVL13:
-  39:Core/Src/Drivers/Src/SysConfig.c ****   {
- 479              		.loc 1 39 6 discriminator 1 view .LVU123
- 480 006a 98B9     		cbnz	r0, .L21
-  46:Core/Src/Drivers/Src/SysConfig.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 481              		.loc 1 46 3 is_stmt 1 view .LVU124
-  46:Core/Src/Drivers/Src/SysConfig.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 482              		.loc 1 46 31 is_stmt 0 view .LVU125
- 483 006c 0F23     		movs	r3, #15
- 484 006e 0393     		str	r3, [sp, #12]
-  48:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 485              		.loc 1 48 3 is_stmt 1 view .LVU126
-  48:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 486              		.loc 1 48 34 is_stmt 0 view .LVU127
- 487 0070 0223     		movs	r3, #2
- 488 0072 0493     		str	r3, [sp, #16]
-  49:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 489              		.loc 1 49 3 is_stmt 1 view .LVU128
-  49:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
- 490              		.loc 1 49 35 is_stmt 0 view .LVU129
- 491 0074 0023     		movs	r3, #0
- 492 0076 0593     		str	r3, [sp, #20]
-  50:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 493              		.loc 1 50 3 is_stmt 1 view .LVU130
-  50:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
- 494              		.loc 1 50 36 is_stmt 0 view .LVU131
- 495 0078 4FF4A053 		mov	r3, #5120
- 496 007c 0693     		str	r3, [sp, #24]
-  51:Core/Src/Drivers/Src/SysConfig.c **** 
- 497              		.loc 1 51 3 is_stmt 1 view .LVU132
-  51:Core/Src/Drivers/Src/SysConfig.c **** 
- 498              		.loc 1 51 36 is_stmt 0 view .LVU133
- 499 007e 4FF48053 		mov	r3, #4096
- 500 0082 0793     		str	r3, [sp, #28]
-  53:Core/Src/Drivers/Src/SysConfig.c ****   {
- 501              		.loc 1 53 3 is_stmt 1 view .LVU134
-  53:Core/Src/Drivers/Src/SysConfig.c ****   {
- 502              		.loc 1 53 7 is_stmt 0 view .LVU135
- 503 0084 0521     		movs	r1, #5
- 504 0086 03A8     		add	r0, sp, #12
- 505 0088 FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 506              	.LVL14:
-  53:Core/Src/Drivers/Src/SysConfig.c ****   {
- 507              		.loc 1 53 6 discriminator 1 view .LVU136
- 508 008c 20B9     		cbnz	r0, .L22
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 30
+ 467              		.loc 1 38 30 is_stmt 0 view .LVU119
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 29
 
 
+ 468 0060 0423     		movs	r3, #4
+ 469 0062 1393     		str	r3, [sp, #76]
+  39:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 470              		.loc 1 39 3 is_stmt 1 view .LVU120
+  39:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 471              		.loc 1 39 7 is_stmt 0 view .LVU121
+ 472 0064 08A8     		add	r0, sp, #32
+ 473 0066 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 474              	.LVL12:
+  39:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 475              		.loc 1 39 6 discriminator 1 view .LVU122
+ 476 006a 98B9     		cbnz	r0, .L21
+  46:Core/Src/Drivers/Src/SysConfig.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 477              		.loc 1 46 3 is_stmt 1 view .LVU123
+  46:Core/Src/Drivers/Src/SysConfig.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 478              		.loc 1 46 31 is_stmt 0 view .LVU124
+ 479 006c 0F23     		movs	r3, #15
+ 480 006e 0393     		str	r3, [sp, #12]
+  48:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 481              		.loc 1 48 3 is_stmt 1 view .LVU125
+  48:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 482              		.loc 1 48 34 is_stmt 0 view .LVU126
+ 483 0070 0223     		movs	r3, #2
+ 484 0072 0493     		str	r3, [sp, #16]
+  49:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 485              		.loc 1 49 3 is_stmt 1 view .LVU127
+  49:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 486              		.loc 1 49 35 is_stmt 0 view .LVU128
+ 487 0074 0023     		movs	r3, #0
+ 488 0076 0593     		str	r3, [sp, #20]
+  50:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 489              		.loc 1 50 3 is_stmt 1 view .LVU129
+  50:Core/Src/Drivers/Src/SysConfig.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 490              		.loc 1 50 36 is_stmt 0 view .LVU130
+ 491 0078 4FF4A053 		mov	r3, #5120
+ 492 007c 0693     		str	r3, [sp, #24]
+  51:Core/Src/Drivers/Src/SysConfig.c **** 
+ 493              		.loc 1 51 3 is_stmt 1 view .LVU131
+  51:Core/Src/Drivers/Src/SysConfig.c **** 
+ 494              		.loc 1 51 36 is_stmt 0 view .LVU132
+ 495 007e 4FF48053 		mov	r3, #4096
+ 496 0082 0793     		str	r3, [sp, #28]
+  53:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 497              		.loc 1 53 3 is_stmt 1 view .LVU133
+  53:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 498              		.loc 1 53 7 is_stmt 0 view .LVU134
+ 499 0084 0521     		movs	r1, #5
+ 500 0086 03A8     		add	r0, sp, #12
+ 501 0088 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 502              	.LVL13:
+  53:Core/Src/Drivers/Src/SysConfig.c ****   {
+ 503              		.loc 1 53 6 discriminator 1 view .LVU135
+ 504 008c 20B9     		cbnz	r0, .L22
   57:Core/Src/Drivers/Src/SysConfig.c **** 
- 509              		.loc 1 57 1 view .LVU137
- 510 008e 15B0     		add	sp, sp, #84
- 511              	.LCFI10:
- 512              		.cfi_remember_state
- 513              		.cfi_def_cfa_offset 4
- 514              		@ sp needed
- 515 0090 5DF804FB 		ldr	pc, [sp], #4
- 516              	.L21:
- 517              	.LCFI11:
- 518              		.cfi_restore_state
+ 505              		.loc 1 57 1 view .LVU136
+ 506 008e 15B0     		add	sp, sp, #84
+ 507              	.LCFI10:
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 30
+
+
+ 508              		.cfi_remember_state
+ 509              		.cfi_def_cfa_offset 4
+ 510              		@ sp needed
+ 511 0090 5DF804FB 		ldr	pc, [sp], #4
+ 512              	.L21:
+ 513              	.LCFI11:
+ 514              		.cfi_restore_state
   41:Core/Src/Drivers/Src/SysConfig.c ****   }
- 519              		.loc 1 41 5 is_stmt 1 view .LVU138
- 520 0094 FFF7FEFF 		bl	Error_Handler
- 521              	.LVL15:
- 522              	.L22:
+ 515              		.loc 1 41 5 is_stmt 1 view .LVU137
+ 516 0094 FFF7FEFF 		bl	Error_Handler
+ 517              	.LVL14:
+ 518              	.L22:
   55:Core/Src/Drivers/Src/SysConfig.c ****   }
- 523              		.loc 1 55 5 view .LVU139
- 524 0098 FFF7FEFF 		bl	Error_Handler
- 525              	.LVL16:
- 526              	.L24:
- 527              		.align	2
- 528              	.L23:
- 529 009c 00380240 		.word	1073887232
- 530 00a0 00700040 		.word	1073770496
- 531              		.cfi_endproc
- 532              	.LFE135:
- 534              		.global	htim7
- 535              		.section	.bss.htim7,"aw",%nobits
- 536              		.align	2
- 539              	htim7:
- 540 0000 00000000 		.space	72
- 540      00000000 
- 540      00000000 
- 540      00000000 
- 540      00000000 
- 541              		.text
- 542              	.Letext0:
- 543              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 544              		.file 4 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
- 545              		.file 5 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
- 546              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 547              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 548              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 549              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 550              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 551              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 552              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
- 553              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
- 554              		.file 14 "<built-in>"
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s 			page 31
+ 519              		.loc 1 55 5 view .LVU138
+ 520 0098 FFF7FEFF 		bl	Error_Handler
+ 521              	.LVL15:
+ 522              	.L24:
+ 523              		.align	2
+ 524              	.L23:
+ 525 009c 00380240 		.word	1073887232
+ 526 00a0 00700040 		.word	1073770496
+ 527              		.cfi_endproc
+ 528              	.LFE135:
+ 530              		.global	htim7
+ 531              		.section	.bss.htim7,"aw",%nobits
+ 532              		.align	2
+ 535              	htim7:
+ 536 0000 00000000 		.space	72
+ 536      00000000 
+ 536      00000000 
+ 536      00000000 
+ 536      00000000 
+ 537              		.text
+ 538              	.Letext0:
+ 539              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 540              		.file 4 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
+ 541              		.file 5 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
+ 542              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 543              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 544              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 545              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 546              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 547              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 548              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 549              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
+ 550              		.file 14 "<built-in>"
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 SysConfig.c
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:21     .text.MX_GPIO_Init:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:165    .text.MX_GPIO_Init:000000a4 $d
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:172    .text.MX_TIM7_Init:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:177    .text.MX_TIM7_Init:00000000 MX_TIM7_Init
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:268    .text.MX_TIM7_Init:0000005c $d
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:539    .bss.htim7:00000000 htim7
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:275    .text.MX_Periferal_Init:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:281    .text.MX_Periferal_Init:00000000 MX_Periferal_Init
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:304    .text.TIM7_IRQHandler:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:310    .text.TIM7_IRQHandler:00000000 TIM7_IRQHandler
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:330    .text.TIM7_IRQHandler:0000000c $d
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:335    .text.Error_Handler:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:341    .text.Error_Handler:00000000 Error_Handler
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:373    .text.SystemClock_Config:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:379    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:529    .text.SystemClock_Config:0000009c $d
-C:\Users\Lamp\AppData\Local\Temp\ccWeO6PT.s:536    .bss.htim7:00000000 $d
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:21     .text.MX_GPIO_Init:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:161    .text.MX_GPIO_Init:0000009c $d
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:168    .text.MX_TIM7_Init:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:173    .text.MX_TIM7_Init:00000000 MX_TIM7_Init
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:264    .text.MX_TIM7_Init:0000005c $d
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:535    .bss.htim7:00000000 htim7
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:271    .text.MX_Periferal_Init:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:277    .text.MX_Periferal_Init:00000000 MX_Periferal_Init
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:300    .text.TIM7_IRQHandler:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:306    .text.TIM7_IRQHandler:00000000 TIM7_IRQHandler
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:326    .text.TIM7_IRQHandler:0000000c $d
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:331    .text.Error_Handler:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:337    .text.Error_Handler:00000000 Error_Handler
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:369    .text.SystemClock_Config:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:375    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:525    .text.SystemClock_Config:0000009c $d
+C:\Users\Lamp\AppData\Local\Temp\ccSwuLNT.s:532    .bss.htim7:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_GPIO_Init
 HAL_NVIC_SetPriority
-HAL_NVIC_EnableIRQ
 HAL_TIM_Base_Init
 HAL_TIMEx_MasterConfigSynchronization
+HAL_NVIC_EnableIRQ
 HAL_TIM_IRQHandler
 memset
 HAL_RCC_OscConfig

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s 			page 1
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -30,151 +30,154 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s 			page 1
   28              	.LFB139:
    1:Core/Src/main.c **** #include "main.h"
    2:Core/Src/main.c **** 
-   3:Core/Src/main.c **** static Blinky1 blinky1;
-   4:Core/Src/main.c **** Active *AO_blinky1 = &blinky1.super;
-   5:Core/Src/main.c **** 
-   6:Core/Src/main.c **** static Button button;
-   7:Core/Src/main.c **** Active *AO_button = &button.super;
-   8:Core/Src/main.c **** 
-   9:Core/Src/main.c **** 
-  10:Core/Src/main.c **** int main(void) {
-  29              		.loc 1 10 16 view -0
+   3:Core/Src/main.c **** 
+   4:Core/Src/main.c **** static struct Blinky blinky;
+   5:Core/Src/main.c **** static struct Active * blinky_AO = &blinky.super;
+   6:Core/Src/main.c **** 
+   7:Core/Src/main.c **** 
+   8:Core/Src/main.c **** static struct Button button;
+   9:Core/Src/main.c **** static struct Active * button_AO = &button.super;
+  10:Core/Src/main.c **** 
+  11:Core/Src/main.c **** 
+  12:Core/Src/main.c **** int main(void) {
+  29              		.loc 1 12 16 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 08B5     		push	{r3, lr}
+  33 0000 38B5     		push	{r3, r4, r5, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 3, -8
-  37              		.cfi_offset 14, -4
-  11:Core/Src/main.c ****   HAL_Init();
-  38              		.loc 1 11 3 view .LVU1
-  39 0002 FFF7FEFF 		bl	HAL_Init
-  40              	.LVL0:
-  12:Core/Src/main.c ****   SystemClock_Config();
-  41              		.loc 1 12 3 view .LVU2
-  42 0006 FFF7FEFF 		bl	SystemClock_Config
-  43              	.LVL1:
-  13:Core/Src/main.c ****   MX_Periferal_Init();
-  44              		.loc 1 13 3 view .LVU3
-  45 000a FFF7FEFF 		bl	MX_Periferal_Init
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s 			page 2
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 3, -16
+  37              		.cfi_offset 4, -12
+  38              		.cfi_offset 5, -8
+  39              		.cfi_offset 14, -4
+  13:Core/Src/main.c ****   HAL_Init();
+  40              		.loc 1 13 3 view .LVU1
+  41 0002 FFF7FEFF 		bl	HAL_Init
+  42              	.LVL0:
+  14:Core/Src/main.c ****   SystemClock_Config();
+  43              		.loc 1 14 3 view .LVU2
+  44 0006 FFF7FEFF 		bl	SystemClock_Config
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s 			page 2
 
 
-  46              	.LVL2:
-  14:Core/Src/main.c **** 
-  15:Core/Src/main.c ****   Blinky1_ctor(&blinky1);
-  47              		.loc 1 15 3 view .LVU4
-  48 000e 0C48     		ldr	r0, .L3
-  49 0010 FFF7FEFF 		bl	Blinky1_ctor
-  50              	.LVL3:
-  16:Core/Src/main.c ****   Active_start(AO_blinky1, 2, 10, configMINIMAL_STACK_SIZE);
-  51              		.loc 1 16 3 view .LVU5
-  52 0014 8223     		movs	r3, #130
-  53 0016 0A22     		movs	r2, #10
-  54 0018 0221     		movs	r1, #2
-  55 001a 0A48     		ldr	r0, .L3+4
-  56 001c 0068     		ldr	r0, [r0]
-  57 001e FFF7FEFF 		bl	Active_start
-  58              	.LVL4:
-  17:Core/Src/main.c **** 
-  18:Core/Src/main.c ****   Button_ctor(&button);
-  59              		.loc 1 18 3 view .LVU6
-  60 0022 0948     		ldr	r0, .L3+8
-  61 0024 FFF7FEFF 		bl	Button_ctor
-  62              	.LVL5:
-  19:Core/Src/main.c ****   Active_start(AO_button, 2, 10, configMINIMAL_STACK_SIZE);
-  63              		.loc 1 19 3 view .LVU7
-  64 0028 8223     		movs	r3, #130
-  65 002a 0A22     		movs	r2, #10
-  66 002c 0221     		movs	r1, #2
-  67 002e 0748     		ldr	r0, .L3+12
-  68 0030 0068     		ldr	r0, [r0]
-  69 0032 FFF7FEFF 		bl	Active_start
-  70              	.LVL6:
-  20:Core/Src/main.c **** 
-  21:Core/Src/main.c ****   vTaskStartScheduler();
-  71              		.loc 1 21 3 view .LVU8
-  72 0036 FFF7FEFF 		bl	vTaskStartScheduler
-  73              	.LVL7:
-  22:Core/Src/main.c **** }
-  74              		.loc 1 22 1 is_stmt 0 view .LVU9
-  75 003a 0020     		movs	r0, #0
-  76 003c 08BD     		pop	{r3, pc}
-  77              	.L4:
-  78 003e 00BF     		.align	2
-  79              	.L3:
-  80 0040 00000000 		.word	blinky1
-  81 0044 00000000 		.word	AO_blinky1
-  82 0048 00000000 		.word	button
-  83 004c 00000000 		.word	AO_button
-  84              		.cfi_endproc
-  85              	.LFE139:
-  87              		.global	AO_button
-  88              		.section	.data.AO_button,"aw"
-  89              		.align	2
-  92              	AO_button:
-  93 0000 00000000 		.word	button
-  94              		.section	.bss.button,"aw",%nobits
-  95              		.align	2
-  98              	button:
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s 			page 3
+  45              	.LVL1:
+  15:Core/Src/main.c ****   MX_Periferal_Init();
+  46              		.loc 1 15 3 view .LVU3
+  47 000a FFF7FEFF 		bl	MX_Periferal_Init
+  48              	.LVL2:
+  16:Core/Src/main.c **** 
+  17:Core/Src/main.c ****   Blinky.constructor(&blinky);
+  49              		.loc 1 17 3 view .LVU4
+  50              		.loc 1 17 9 is_stmt 0 view .LVU5
+  51 000e 0E4B     		ldr	r3, .L3
+  52 0010 1B68     		ldr	r3, [r3]
+  53              		.loc 1 17 3 view .LVU6
+  54 0012 0E4C     		ldr	r4, .L3+4
+  55 0014 2046     		mov	r0, r4
+  56 0016 9847     		blx	r3
+  57              	.LVL3:
+  18:Core/Src/main.c ****   blinky.super.start(blinky_AO, 2, 10, configMINIMAL_STACK_SIZE);
+  58              		.loc 1 18 3 is_stmt 1 view .LVU7
+  59              		.loc 1 18 15 is_stmt 0 view .LVU8
+  60 0018 D4F8B850 		ldr	r5, [r4, #184]
+  61              		.loc 1 18 3 view .LVU9
+  62 001c 8223     		movs	r3, #130
+  63 001e 0A22     		movs	r2, #10
+  64 0020 0221     		movs	r1, #2
+  65 0022 2046     		mov	r0, r4
+  66 0024 A847     		blx	r5
+  67              	.LVL4:
+  19:Core/Src/main.c **** 
+  20:Core/Src/main.c ****   Button.constructor(&button);
+  68              		.loc 1 20 3 is_stmt 1 view .LVU10
+  69              		.loc 1 20 9 is_stmt 0 view .LVU11
+  70 0026 0A4B     		ldr	r3, .L3+8
+  71 0028 1B68     		ldr	r3, [r3]
+  72              		.loc 1 20 3 view .LVU12
+  73 002a 0A4C     		ldr	r4, .L3+12
+  74 002c 2046     		mov	r0, r4
+  75 002e 9847     		blx	r3
+  76              	.LVL5:
+  21:Core/Src/main.c ****   button.super.start(button_AO, 3, 10, configMINIMAL_STACK_SIZE);
+  77              		.loc 1 21 3 is_stmt 1 view .LVU13
+  78              		.loc 1 21 15 is_stmt 0 view .LVU14
+  79 0030 D4F8B850 		ldr	r5, [r4, #184]
+  80              		.loc 1 21 3 view .LVU15
+  81 0034 8223     		movs	r3, #130
+  82 0036 0A22     		movs	r2, #10
+  83 0038 0321     		movs	r1, #3
+  84 003a 2046     		mov	r0, r4
+  85 003c A847     		blx	r5
+  86              	.LVL6:
+  22:Core/Src/main.c **** 
+  23:Core/Src/main.c ****   vTaskStartScheduler();
+  87              		.loc 1 23 3 is_stmt 1 view .LVU16
+  88 003e FFF7FEFF 		bl	vTaskStartScheduler
+  89              	.LVL7:
+  24:Core/Src/main.c **** }
+  90              		.loc 1 24 1 is_stmt 0 view .LVU17
+  91 0042 0020     		movs	r0, #0
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s 			page 3
 
 
-  99 0000 00000000 		.space	180
-  99      00000000 
-  99      00000000 
-  99      00000000 
-  99      00000000 
- 100              		.global	AO_blinky1
- 101              		.section	.data.AO_blinky1,"aw"
- 102              		.align	2
- 105              	AO_blinky1:
- 106 0000 00000000 		.word	blinky1
- 107              		.section	.bss.blinky1,"aw",%nobits
- 108              		.align	2
- 111              	blinky1:
- 112 0000 00000000 		.space	184
- 112      00000000 
- 112      00000000 
- 112      00000000 
- 112      00000000 
- 113              		.text
- 114              	.Letext0:
- 115              		.file 2 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
- 116              		.file 3 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
- 117              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 118              		.file 5 "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h"
- 119              		.file 6 "ThirdParty/FreeRTOS/include/FreeRTOS.h"
- 120              		.file 7 "ThirdParty/FreeRTOS/include/task.h"
- 121              		.file 8 "ThirdParty/FreeRTOS/include/queue.h"
- 122              		.file 9 "Core/Src/ActiveObject/Inc/Active_Object.h"
- 123              		.file 10 "Core/Src/ActiveObject/Inc/Button.h"
- 124              		.file 11 "Core/Src/ActiveObject/Inc/Blinky.h"
- 125              		.file 12 "Core/Src/Drivers/Inc/SysConfig.h"
- 126              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s 			page 4
+  92 0044 38BD     		pop	{r3, r4, r5, pc}
+  93              	.L4:
+  94 0046 00BF     		.align	2
+  95              	.L3:
+  96 0048 00000000 		.word	Blinky
+  97 004c 00000000 		.word	blinky
+  98 0050 00000000 		.word	Button
+  99 0054 00000000 		.word	button
+ 100              		.cfi_endproc
+ 101              	.LFE139:
+ 103              		.section	.bss.button,"aw",%nobits
+ 104              		.align	2
+ 107              	button:
+ 108 0000 00000000 		.space	212
+ 108      00000000 
+ 108      00000000 
+ 108      00000000 
+ 108      00000000 
+ 109              		.section	.bss.blinky,"aw",%nobits
+ 110              		.align	2
+ 113              	blinky:
+ 114 0000 00000000 		.space	212
+ 114      00000000 
+ 114      00000000 
+ 114      00000000 
+ 114      00000000 
+ 115              		.text
+ 116              	.Letext0:
+ 117              		.file 2 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
+ 118              		.file 3 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
+ 119              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 120              		.file 5 "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h"
+ 121              		.file 6 "ThirdParty/FreeRTOS/include/FreeRTOS.h"
+ 122              		.file 7 "ThirdParty/FreeRTOS/include/task.h"
+ 123              		.file 8 "ThirdParty/FreeRTOS/include/queue.h"
+ 124              		.file 9 "Core/Src/ActiveObject/Inc/Active_Object.h"
+ 125              		.file 10 "Core/Src/ActiveObject/Inc/Button.h"
+ 126              		.file 11 "Core/Src/ActiveObject/Inc/Blinky.h"
+ 127              		.file 12 "Core/Src/Drivers/Inc/SysConfig.h"
+ 128              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:21     .text.main:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:27     .text.main:00000000 main
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:80     .text.main:00000040 $d
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:111    .bss.blinky1:00000000 blinky1
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:105    .data.AO_blinky1:00000000 AO_blinky1
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:98     .bss.button:00000000 button
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:92     .data.AO_button:00000000 AO_button
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:89     .data.AO_button:00000000 $d
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:95     .bss.button:00000000 $d
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:102    .data.AO_blinky1:00000000 $d
-C:\Users\Lamp\AppData\Local\Temp\cctSOGNg.s:108    .bss.blinky1:00000000 $d
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:21     .text.main:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:27     .text.main:00000000 main
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:96     .text.main:00000048 $d
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:113    .bss.blinky:00000000 blinky
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:107    .bss.button:00000000 button
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:104    .bss.button:00000000 $d
+C:\Users\Lamp\AppData\Local\Temp\ccHAX8S0.s:110    .bss.blinky:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Init
 SystemClock_Config
 MX_Periferal_Init
-Blinky1_ctor
-Active_start
-Button_ctor
 vTaskStartScheduler
+Blinky
+Button

@@ -199,7 +199,7 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 extern Active * AO_button;
-extern Active * AO_blinky1;
+extern Active * AO_blinky;
 
 /* USER CODE BEGIN 1 */
 // Xử lý ngắt cho EXTI0 (PA0)
@@ -225,7 +225,7 @@ void EXTI0_IRQHandler (void) {
     }
 
     /* Post Event from ISR to ActiveObject */
-    Active_postFromISR(AO_button, &btnEvt, &xHigherPriorityTaskWoken);
+    AO_button->postFromISR(AO_button, &btnEvt, &xHigherPriorityTaskWoken);
     portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
   }
 }
@@ -235,7 +235,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   if (htim->Instance == TIM7) {
     static const Event time_evt = { .signal = TIME_OUT_SIG };
     /* Send the time out event to the Blinky Active Object */
-    Active_postFromISR(AO_blinky1, &time_evt, &xHigherPriorityTaskWoken);
+    AO_blinky->postFromISR(AO_blinky, &time_evt, &xHigherPriorityTaskWoken);
   }
   portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
 }

@@ -1,10 +1,12 @@
 #include "main.h"
 
-static Blinky1 blinky1;
-Active *AO_blinky1 = &blinky1.super;
 
-static Button button;
-Active *AO_button = &button.super;
+static struct Blinky blinky;
+static struct Active * blinky_AO = &blinky.super;
+
+
+static struct Button button;
+static struct Active * button_AO = &button.super;
 
 
 int main(void) {
@@ -12,11 +14,11 @@ int main(void) {
   SystemClock_Config();
   MX_Periferal_Init();
 
-  Blinky1_ctor(&blinky1);
-  Active_start(AO_blinky1, 2, 10, configMINIMAL_STACK_SIZE);
+  Blinky.constructor(&blinky);
+  blinky.super.start(blinky_AO, 2, 10, configMINIMAL_STACK_SIZE);
 
-  Button_ctor(&button);
-  Active_start(AO_button, 2, 10, configMINIMAL_STACK_SIZE);
+  Button.constructor(&button);
+  button.super.start(button_AO, 3, 10, configMINIMAL_STACK_SIZE);
 
   vTaskStartScheduler();
 }

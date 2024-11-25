@@ -37,6 +37,7 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  ThirdParty/FreeRTOS/include/task.h ThirdParty/FreeRTOS/include/list.h \
  ThirdParty/FreeRTOS/include/queue.h ThirdParty/FreeRTOS/include/task.h \
  Core/Src/ActiveObject/Inc/Blinky.h Core/Src/ActiveObject/Inc/Button.h \
+ Core/Src/ActiveObject/Inc/Active_Object.h \
  Core/Src/Drivers/Inc/SysConfig.h
 Core/Inc/main.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -82,4 +83,5 @@ ThirdParty/FreeRTOS/include/queue.h:
 ThirdParty/FreeRTOS/include/task.h:
 Core/Src/ActiveObject/Inc/Blinky.h:
 Core/Src/ActiveObject/Inc/Button.h:
+Core/Src/ActiveObject/Inc/Active_Object.h:
 Core/Src/Drivers/Inc/SysConfig.h:

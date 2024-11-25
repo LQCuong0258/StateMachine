@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s 			page 1
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,171 +20,303 @@ ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "Core/Src/ActiveObject/Src/Blinky.c"
-  20              		.section	.text.Blinky_dispatch,"ax",%progbits
+  20              		.section	.text.initial,"ax",%progbits
   21              		.align	1
   22              		.syntax unified
   23              		.thumb
   24              		.thumb_func
-  26              	Blinky_dispatch:
+  26              	initial:
   27              	.LVL0:
   28              	.LFB139:
    1:Core/Src/ActiveObject/Src/Blinky.c **** #include "Blinky.h"
    2:Core/Src/ActiveObject/Src/Blinky.c **** 
    3:Core/Src/ActiveObject/Src/Blinky.c **** extern TIM_HandleTypeDef htim7;
    4:Core/Src/ActiveObject/Src/Blinky.c **** 
-   5:Core/Src/ActiveObject/Src/Blinky.c **** /**
-   6:Core/Src/ActiveObject/Src/Blinky.c ****  * Hàm này sẽ xử lý khi nhận được sự kiện từ Active Object
-   7:Core/Src/ActiveObject/Src/Blinky.c ****  */
-   8:Core/Src/ActiveObject/Src/Blinky.c **** static void Blinky_dispatch (Blinky1 * const self, Event const * const event) {
+   5:Core/Src/ActiveObject/Src/Blinky.c **** struct Active * AO_blinky;
+   6:Core/Src/ActiveObject/Src/Blinky.c **** struct Blinky * blinky;
+   7:Core/Src/ActiveObject/Src/Blinky.c **** 
+   8:Core/Src/ActiveObject/Src/Blinky.c **** static Status initial (struct Blinky * const self, Event const * const event) {
   29              		.loc 1 8 79 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33              		.loc 1 8 79 is_stmt 0 view .LVU1
-  34 0000 08B5     		push	{r3, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
-  38              		.cfi_offset 14, -4
-   9:Core/Src/ActiveObject/Src/Blinky.c ****   switch (event->signal) {
-  39              		.loc 1 9 3 is_stmt 1 view .LVU2
-  40              		.loc 1 9 16 is_stmt 0 view .LVU3
-  41 0002 0B88     		ldrh	r3, [r1]
-  42              		.loc 1 9 3 view .LVU4
-  43 0004 3BB1     		cbz	r3, .L2
-  44 0006 012B     		cmp	r3, #1
-  45 0008 08D1     		bne	.L1
-  10:Core/Src/ActiveObject/Src/Blinky.c ****     /**
-  11:Core/Src/ActiveObject/Src/Blinky.c ****      * Đây là Event khi ActiveObject được khởi tạo
-  12:Core/Src/ActiveObject/Src/Blinky.c ****      * trong trường hợp này đang khi được khởi tạo
-  13:Core/Src/ActiveObject/Src/Blinky.c ****      * sẽ bật timer bắt đầu cout
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s 			page 2
+  33              		@ link register save eliminated.
+   9:Core/Src/ActiveObject/Src/Blinky.c ****     Status status = TRAN_STATUS;
+  34              		.loc 1 9 5 view .LVU1
+  10:Core/Src/ActiveObject/Src/Blinky.c ****     self->super.handler = (StateHandler) self->active;
+  35              		.loc 1 10 5 view .LVU2
+  36              		.loc 1 10 46 is_stmt 0 view .LVU3
+  37 0000 D0F8D030 		ldr	r3, [r0, #208]
+  38              		.loc 1 10 25 view .LVU4
+  39 0004 C0F8B030 		str	r3, [r0, #176]
+  11:Core/Src/ActiveObject/Src/Blinky.c ****     return status;
+  40              		.loc 1 11 5 is_stmt 1 view .LVU5
+  12:Core/Src/ActiveObject/Src/Blinky.c **** }
+  41              		.loc 1 12 1 is_stmt 0 view .LVU6
+  42 0008 0020     		movs	r0, #0
+  43              	.LVL1:
+  44              		.loc 1 12 1 view .LVU7
+  45 000a 7047     		bx	lr
+  46              		.cfi_endproc
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 2
 
 
-  14:Core/Src/ActiveObject/Src/Blinky.c ****      */
-  15:Core/Src/ActiveObject/Src/Blinky.c ****     case INIT_SIG:
-  16:Core/Src/ActiveObject/Src/Blinky.c ****       HAL_TIM_Base_Start_IT(&htim7); // Bắt đầu Timer với ngắt
-  17:Core/Src/ActiveObject/Src/Blinky.c ****       break;
-  18:Core/Src/ActiveObject/Src/Blinky.c ****     /**
-  19:Core/Src/ActiveObject/Src/Blinky.c ****      * Vì đây là một sự kiện thời gian được post từ timer
-  20:Core/Src/ActiveObject/Src/Blinky.c ****      * nên khi timer triger, nó sẽ gửi Event TIME_OUT_SIG đến Active Object
-  21:Core/Src/ActiveObject/Src/Blinky.c ****      * khi đó led sẽ Toggle đúng chu kỳ đã được cấu hình cho timer
-  22:Core/Src/ActiveObject/Src/Blinky.c ****      */
-  23:Core/Src/ActiveObject/Src/Blinky.c ****     case TIME_OUT_SIG:
-  24:Core/Src/ActiveObject/Src/Blinky.c ****       HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-  46              		.loc 1 24 7 is_stmt 1 view .LVU5
-  47 000a 4FF48041 		mov	r1, #16384
-  48              	.LVL1:
-  49              		.loc 1 24 7 is_stmt 0 view .LVU6
-  50 000e 0448     		ldr	r0, .L6
-  51              	.LVL2:
-  52              		.loc 1 24 7 view .LVU7
-  53 0010 FFF7FEFF 		bl	HAL_GPIO_TogglePin
-  54              	.LVL3:
-  25:Core/Src/ActiveObject/Src/Blinky.c ****       break;
-  55              		.loc 1 25 7 is_stmt 1 view .LVU8
-  26:Core/Src/ActiveObject/Src/Blinky.c ****   
-  27:Core/Src/ActiveObject/Src/Blinky.c ****     default:
+  47              	.LFE139:
+  49              		.section	.text.constructor,"ax",%progbits
+  50              		.align	1
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  55              	constructor:
+  56              	.LVL2:
+  57              	.LFB141:
+  13:Core/Src/ActiveObject/Src/Blinky.c **** 
+  14:Core/Src/ActiveObject/Src/Blinky.c **** /**
+  15:Core/Src/ActiveObject/Src/Blinky.c ****  * Hàm này sẽ xử lý khi nhận được sự kiện từ Active Object
+  16:Core/Src/ActiveObject/Src/Blinky.c ****  */
+  17:Core/Src/ActiveObject/Src/Blinky.c **** static Status active (struct Blinky * const self, Event const * const event) {
+  18:Core/Src/ActiveObject/Src/Blinky.c ****   Status status;
+  19:Core/Src/ActiveObject/Src/Blinky.c **** 
+  20:Core/Src/ActiveObject/Src/Blinky.c ****   switch (event->signal) {
+  21:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+  22:Core/Src/ActiveObject/Src/Blinky.c ****      * Đây là Event khi ActiveObject được khởi tạo
+  23:Core/Src/ActiveObject/Src/Blinky.c ****      * trong trường hợp này đang khi được khởi tạo
+  24:Core/Src/ActiveObject/Src/Blinky.c ****      * sẽ bật timer bắt đầu cout
+  25:Core/Src/ActiveObject/Src/Blinky.c ****      */
+  26:Core/Src/ActiveObject/Src/Blinky.c ****     case ENTRY_SIG:
+  27:Core/Src/ActiveObject/Src/Blinky.c ****       HAL_TIM_Base_Start_IT(&htim7); // Bắt đầu Timer với ngắt
+  28:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+  29:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+  30:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+  31:Core/Src/ActiveObject/Src/Blinky.c ****      * Vì đây là một sự kiện thời gian được post từ timer
+  32:Core/Src/ActiveObject/Src/Blinky.c ****      * nên khi timer triger, nó sẽ gửi Event TIME_OUT_SIG đến Active Object
+  33:Core/Src/ActiveObject/Src/Blinky.c ****      * khi đó led sẽ Toggle đúng chu kỳ đã được cấu hình cho timer
+  34:Core/Src/ActiveObject/Src/Blinky.c ****      */
+  35:Core/Src/ActiveObject/Src/Blinky.c ****     case TIME_OUT_SIG:
+  36:Core/Src/ActiveObject/Src/Blinky.c ****       HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+  37:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+  38:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+  39:Core/Src/ActiveObject/Src/Blinky.c ****     case EXIT_SIG:
+  40:Core/Src/ActiveObject/Src/Blinky.c ****       status = HANDLED_STATUS;
+  41:Core/Src/ActiveObject/Src/Blinky.c ****     default:
+  42:Core/Src/ActiveObject/Src/Blinky.c ****       status = IGNORED_STATUS;
+  43:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+  44:Core/Src/ActiveObject/Src/Blinky.c ****   }
+  45:Core/Src/ActiveObject/Src/Blinky.c ****   return status;
+  46:Core/Src/ActiveObject/Src/Blinky.c **** }
+  47:Core/Src/ActiveObject/Src/Blinky.c **** 
+  48:Core/Src/ActiveObject/Src/Blinky.c **** /**
+  49:Core/Src/ActiveObject/Src/Blinky.c ****  * Hàm này dùng để khởi tạo constructer
+  50:Core/Src/ActiveObject/Src/Blinky.c ****  * tức là gán hàm Blinky_dispatch vào vistual function là dispatch
+  51:Core/Src/ActiveObject/Src/Blinky.c ****  * của Active Object, khi đó Active Object của Blinky có thể gửi
+  52:Core/Src/ActiveObject/Src/Blinky.c ****  * các Event đến đúng dispatch function của nó.
+  53:Core/Src/ActiveObject/Src/Blinky.c ****  */
+  54:Core/Src/ActiveObject/Src/Blinky.c **** static void constructor (struct Blinky * const self) {
+  58              		.loc 1 54 54 is_stmt 1 view -0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		.loc 1 54 54 is_stmt 0 view .LVU9
+  63 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 3
+
+
+  64              	.LCFI0:
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 4, -8
+  67              		.cfi_offset 14, -4
+  68 0002 0446     		mov	r4, r0
+  55:Core/Src/ActiveObject/Src/Blinky.c ****   self->initial = &initial;
+  69              		.loc 1 55 3 is_stmt 1 view .LVU10
+  70              		.loc 1 55 17 is_stmt 0 view .LVU11
+  71 0004 0649     		ldr	r1, .L4
+  72 0006 C0F8CC10 		str	r1, [r0, #204]
+  56:Core/Src/ActiveObject/Src/Blinky.c ****   self->active = &active;
+  73              		.loc 1 56 3 is_stmt 1 view .LVU12
+  74              		.loc 1 56 16 is_stmt 0 view .LVU13
+  75 000a 064B     		ldr	r3, .L4+4
+  76 000c C0F8D030 		str	r3, [r0, #208]
+  57:Core/Src/ActiveObject/Src/Blinky.c **** 
+  58:Core/Src/ActiveObject/Src/Blinky.c ****   Active_Constructor (&self->super, (StateHandler) initial);
+  77              		.loc 1 58 3 is_stmt 1 view .LVU14
+  78 0010 FFF7FEFF 		bl	Active_Constructor
+  79              	.LVL3:
+  59:Core/Src/ActiveObject/Src/Blinky.c **** 
+  60:Core/Src/ActiveObject/Src/Blinky.c ****   AO_blinky = &self->super;
+  80              		.loc 1 60 3 view .LVU15
+  81              		.loc 1 60 13 is_stmt 0 view .LVU16
+  82 0014 044B     		ldr	r3, .L4+8
+  83 0016 1C60     		str	r4, [r3]
+  61:Core/Src/ActiveObject/Src/Blinky.c ****   blinky = self;
+  84              		.loc 1 61 3 is_stmt 1 view .LVU17
+  85              		.loc 1 61 10 is_stmt 0 view .LVU18
+  86 0018 044B     		ldr	r3, .L4+12
+  87 001a 1C60     		str	r4, [r3]
+  62:Core/Src/ActiveObject/Src/Blinky.c **** }
+  88              		.loc 1 62 1 view .LVU19
+  89 001c 10BD     		pop	{r4, pc}
+  90              	.LVL4:
+  91              	.L5:
+  92              		.loc 1 62 1 view .LVU20
+  93 001e 00BF     		.align	2
+  94              	.L4:
+  95 0020 00000000 		.word	initial
+  96 0024 00000000 		.word	active
+  97 0028 00000000 		.word	AO_blinky
+  98 002c 00000000 		.word	blinky
+  99              		.cfi_endproc
+ 100              	.LFE141:
+ 102              		.section	.text.active,"ax",%progbits
+ 103              		.align	1
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 108              	active:
+ 109              	.LVL5:
+ 110              	.LFB140:
+  17:Core/Src/ActiveObject/Src/Blinky.c ****   Status status;
+ 111              		.loc 1 17 78 is_stmt 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 4
+
+
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+  17:Core/Src/ActiveObject/Src/Blinky.c ****   Status status;
+ 115              		.loc 1 17 78 is_stmt 0 view .LVU22
+ 116 0000 08B5     		push	{r3, lr}
+ 117              	.LCFI1:
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 3, -8
+ 120              		.cfi_offset 14, -4
+  18:Core/Src/ActiveObject/Src/Blinky.c **** 
+ 121              		.loc 1 18 3 is_stmt 1 view .LVU23
+  20:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+ 122              		.loc 1 20 3 view .LVU24
+  20:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+ 123              		.loc 1 20 16 is_stmt 0 view .LVU25
+ 124 0002 0B88     		ldrh	r3, [r1]
+  20:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+ 125              		.loc 1 20 3 view .LVU26
+ 126 0004 012B     		cmp	r3, #1
+ 127 0006 03D0     		beq	.L7
+ 128 0008 032B     		cmp	r3, #3
+ 129 000a 06D0     		beq	.L8
+ 130 000c 0220     		movs	r0, #2
+ 131              	.LVL6:
+  20:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+ 132              		.loc 1 20 3 view .LVU27
+ 133 000e 03E0     		b	.L9
+ 134              	.LVL7:
+ 135              	.L7:
+  27:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+ 136              		.loc 1 27 7 is_stmt 1 view .LVU28
+ 137 0010 0548     		ldr	r0, .L11
+ 138              	.LVL8:
+  27:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+ 139              		.loc 1 27 7 is_stmt 0 view .LVU29
+ 140 0012 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 141              	.LVL9:
   28:Core/Src/ActiveObject/Src/Blinky.c ****       break;
-  29:Core/Src/ActiveObject/Src/Blinky.c ****   }
-  30:Core/Src/ActiveObject/Src/Blinky.c **** }
-  56              		.loc 1 30 1 is_stmt 0 view .LVU9
-  57 0014 02E0     		b	.L1
-  58              	.LVL4:
-  59              	.L2:
-  16:Core/Src/ActiveObject/Src/Blinky.c ****       break;
-  60              		.loc 1 16 7 is_stmt 1 view .LVU10
-  61 0016 0348     		ldr	r0, .L6+4
-  62              	.LVL5:
-  16:Core/Src/ActiveObject/Src/Blinky.c ****       break;
-  63              		.loc 1 16 7 is_stmt 0 view .LVU11
-  64 0018 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
-  65              	.LVL6:
-  17:Core/Src/ActiveObject/Src/Blinky.c ****     /**
-  66              		.loc 1 17 7 is_stmt 1 view .LVU12
-  67              	.L1:
-  68              		.loc 1 30 1 is_stmt 0 view .LVU13
-  69 001c 08BD     		pop	{r3, pc}
-  70              	.L7:
-  71 001e 00BF     		.align	2
-  72              	.L6:
-  73 0020 000C0240 		.word	1073875968
-  74 0024 00000000 		.word	htim7
-  75              		.cfi_endproc
-  76              	.LFE139:
-  78              		.section	.text.Blinky1_ctor,"ax",%progbits
-  79              		.align	1
-  80              		.global	Blinky1_ctor
-  81              		.syntax unified
-  82              		.thumb
-  83              		.thumb_func
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s 			page 3
+ 142              		.loc 1 28 7 is_stmt 1 view .LVU30
+  29:Core/Src/ActiveObject/Src/Blinky.c ****     /**
+ 143              		.loc 1 29 7 view .LVU31
+  28:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+ 144              		.loc 1 28 14 is_stmt 0 view .LVU32
+ 145 0016 0020     		movs	r0, #0
+ 146              	.LVL10:
+ 147              	.L9:
+  45:Core/Src/ActiveObject/Src/Blinky.c **** }
+ 148              		.loc 1 45 3 is_stmt 1 view .LVU33
+  46:Core/Src/ActiveObject/Src/Blinky.c **** 
+ 149              		.loc 1 46 1 is_stmt 0 view .LVU34
+ 150 0018 08BD     		pop	{r3, pc}
+ 151              	.LVL11:
+ 152              	.L8:
+  36:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+ 153              		.loc 1 36 7 is_stmt 1 view .LVU35
+ 154 001a 4FF48051 		mov	r1, #4096
+ 155              	.LVL12:
+  36:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 5
 
 
-  85              	Blinky1_ctor:
-  86              	.LVL7:
-  87              	.LFB140:
-  31:Core/Src/ActiveObject/Src/Blinky.c **** 
-  32:Core/Src/ActiveObject/Src/Blinky.c **** /**
-  33:Core/Src/ActiveObject/Src/Blinky.c ****  * Hàm này dùng để khởi tạo constructer
-  34:Core/Src/ActiveObject/Src/Blinky.c ****  * tức là gán hàm Blinky_dispatch vào vistual function là dispatch
-  35:Core/Src/ActiveObject/Src/Blinky.c ****  * của Active Object, khi đó Active Object của Blinky có thể gửi
-  36:Core/Src/ActiveObject/Src/Blinky.c ****  * các Event đến đúng dispatch function của nó.
-  37:Core/Src/ActiveObject/Src/Blinky.c ****  */
-  38:Core/Src/ActiveObject/Src/Blinky.c **** void Blinky1_ctor (Blinky1 * const self) {
-  88              		.loc 1 38 42 is_stmt 1 view -0
-  89              		.cfi_startproc
-  90              		@ args = 0, pretend = 0, frame = 0
-  91              		@ frame_needed = 0, uses_anonymous_args = 0
-  92              		.loc 1 38 42 is_stmt 0 view .LVU15
-  93 0000 08B5     		push	{r3, lr}
-  94              	.LCFI1:
-  95              		.cfi_def_cfa_offset 8
-  96              		.cfi_offset 3, -8
-  97              		.cfi_offset 14, -4
-  39:Core/Src/ActiveObject/Src/Blinky.c ****   Active_ctor (&self->super, (DispatchHandler) &Blinky_dispatch);
-  98              		.loc 1 39 3 is_stmt 1 view .LVU16
-  99 0002 0249     		ldr	r1, .L10
- 100 0004 FFF7FEFF 		bl	Active_ctor
- 101              	.LVL8:
-  40:Core/Src/ActiveObject/Src/Blinky.c **** }
- 102              		.loc 1 40 1 is_stmt 0 view .LVU17
- 103 0008 08BD     		pop	{r3, pc}
- 104              	.L11:
- 105 000a 00BF     		.align	2
- 106              	.L10:
- 107 000c 00000000 		.word	Blinky_dispatch
- 108              		.cfi_endproc
- 109              	.LFE140:
- 111              		.text
- 112              	.Letext0:
- 113              		.file 2 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
- 114              		.file 3 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
- 115              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 116              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 117              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 118              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 119              		.file 8 "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h"
- 120              		.file 9 "ThirdParty/FreeRTOS/include/FreeRTOS.h"
- 121              		.file 10 "ThirdParty/FreeRTOS/include/task.h"
- 122              		.file 11 "ThirdParty/FreeRTOS/include/queue.h"
- 123              		.file 12 "Core/Src/ActiveObject/Inc/Active_Object.h"
- 124              		.file 13 "Core/Src/ActiveObject/Inc/Blinky.h"
- 125              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
-ARM GAS  C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s 			page 4
+ 156              		.loc 1 36 7 is_stmt 0 view .LVU36
+ 157 001e 0348     		ldr	r0, .L11+4
+ 158              	.LVL13:
+  36:Core/Src/ActiveObject/Src/Blinky.c ****       status = TRAN_STATUS;
+ 159              		.loc 1 36 7 view .LVU37
+ 160 0020 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 161              	.LVL14:
+  37:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+ 162              		.loc 1 37 7 is_stmt 1 view .LVU38
+  38:Core/Src/ActiveObject/Src/Blinky.c ****     case EXIT_SIG:
+ 163              		.loc 1 38 7 view .LVU39
+  37:Core/Src/ActiveObject/Src/Blinky.c ****       break;
+ 164              		.loc 1 37 14 is_stmt 0 view .LVU40
+ 165 0024 0020     		movs	r0, #0
+  38:Core/Src/ActiveObject/Src/Blinky.c ****     case EXIT_SIG:
+ 166              		.loc 1 38 7 view .LVU41
+ 167 0026 F7E7     		b	.L9
+ 168              	.L12:
+ 169              		.align	2
+ 170              	.L11:
+ 171 0028 00000000 		.word	htim7
+ 172 002c 000C0240 		.word	1073875968
+ 173              		.cfi_endproc
+ 174              	.LFE140:
+ 176              		.global	Blinky
+ 177              		.section	.rodata.Blinky,"a"
+ 178              		.align	2
+ 181              	Blinky:
+ 182 0000 00000000 		.word	constructor
+ 183              		.global	blinky
+ 184              		.section	.bss.blinky,"aw",%nobits
+ 185              		.align	2
+ 188              	blinky:
+ 189 0000 00000000 		.space	4
+ 190              		.global	AO_blinky
+ 191              		.section	.bss.AO_blinky,"aw",%nobits
+ 192              		.align	2
+ 195              	AO_blinky:
+ 196 0000 00000000 		.space	4
+ 197              		.text
+ 198              	.Letext0:
+ 199              		.file 2 "C:/ARM GNU Toolchain/arm-none-eabi/include/machine/_default_types.h"
+ 200              		.file 3 "C:/ARM GNU Toolchain/arm-none-eabi/include/sys/_stdint.h"
+ 201              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 202              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 203              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 204              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 205              		.file 8 "ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h"
+ 206              		.file 9 "ThirdParty/FreeRTOS/include/FreeRTOS.h"
+ 207              		.file 10 "ThirdParty/FreeRTOS/include/task.h"
+ 208              		.file 11 "ThirdParty/FreeRTOS/include/queue.h"
+ 209              		.file 12 "Core/Src/ActiveObject/Inc/Active_Object.h"
+ 210              		.file 13 "Core/Src/ActiveObject/Inc/Blinky.h"
+ 211              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ARM GAS  C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 Blinky.c
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:21     .text.Blinky_dispatch:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:26     .text.Blinky_dispatch:00000000 Blinky_dispatch
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:73     .text.Blinky_dispatch:00000020 $d
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:79     .text.Blinky1_ctor:00000000 $t
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:85     .text.Blinky1_ctor:00000000 Blinky1_ctor
-C:\Users\Lamp\AppData\Local\Temp\ccPNQb7y.s:107    .text.Blinky1_ctor:0000000c $d
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:21     .text.initial:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:26     .text.initial:00000000 initial
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:50     .text.constructor:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:55     .text.constructor:00000000 constructor
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:95     .text.constructor:00000020 $d
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:108    .text.active:00000000 active
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:195    .bss.AO_blinky:00000000 AO_blinky
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:188    .bss.blinky:00000000 blinky
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:103    .text.active:00000000 $t
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:171    .text.active:00000028 $d
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:181    .rodata.Blinky:00000000 Blinky
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:178    .rodata.Blinky:00000000 $d
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:185    .bss.blinky:00000000 $d
+C:\Users\Lamp\AppData\Local\Temp\cctEFwMD.s:192    .bss.AO_blinky:00000000 $d
 
 UNDEFINED SYMBOLS
-HAL_GPIO_TogglePin
+Active_Constructor
 HAL_TIM_Base_Start_IT
+HAL_GPIO_TogglePin
 htim7
-Active_ctor

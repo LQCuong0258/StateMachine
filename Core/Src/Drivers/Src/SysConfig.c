@@ -87,7 +87,7 @@ static void MX_GPIO_Init(void)
 
   // Khởi tạo NVIC cho EXTI0
   HAL_NVIC_SetPriority(EXTI0_IRQn, 7, 0);
-  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+  // HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

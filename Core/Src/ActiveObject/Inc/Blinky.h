@@ -14,15 +14,23 @@ typedef enum {
 } BlinkySignal;
 
 /* The Blinky Active Object */
-typedef struct {
+struct Blinky {
+    /* Members */
     Active super;
 
-    Event event;
-} Blinky1;
+    /* Methods */
+    Status (*initial) ( struct Blinky * const self, Event const * const event );
+    Status (*active) ( struct Blinky * const self, Event const * const event );
+};
 
-void Blinky1_ctor (Blinky1 * const self);
+extern const struct BlinkyClass {
+    void (*constructor) (struct Blinky * const self);
+} Blinky;
 
-Status Blinky_initial (Blinky1 * const self, void const * const para);
-Status Blinky_active (Blinky1 * const self, Event const * const para);
+
+// void Blinky_ctor (Blinky * const self);
+
+// Status Blinky_initial (Blinky * const self, void const * const para);
+// Status Blinky_active (Blinky * const self, Event const * const para);
 
 #endif /* __BLINKY_H */
